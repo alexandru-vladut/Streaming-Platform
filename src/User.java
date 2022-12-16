@@ -1,6 +1,12 @@
 public class User {
     private Credentials credentials;
 
+    public User(Credentials credentials) {
+        this.credentials = credentials;
+    }
+
+    public User() {}
+
     public Credentials getCredentials() {
         return credentials;
     }
@@ -10,9 +16,48 @@ public class User {
     }
 }
 
-class loginCredentials{
+//class loginCredentials{
+//    private String name;
+//    private String password;
+//
+//    public loginCredentials(String name, String password) {
+//        this.name = name;
+//        this.password = password;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//}
+
+class Credentials{
     private String name;
     private String password;
+    private String accountType;
+    private String country;
+    private String balance;
+
+    public Credentials(String name, String password, String accountType, String country, String balance) {
+        this.name = name;
+        this.password = password;
+        this.accountType = accountType;
+        this.country = country;
+        this.balance = balance;
+    }
+
+    public Credentials() {}
 
     public String getName() {
         return name;
@@ -29,12 +74,6 @@ class loginCredentials{
     public void setPassword(String password) {
         this.password = password;
     }
-}
-
-class Credentials extends loginCredentials{
-    private String accountType;
-    private String country;
-    private String balance;
 
     public String getAccountType() {
         return accountType;

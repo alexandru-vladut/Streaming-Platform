@@ -1,4 +1,4 @@
-public class changePage {
+public class Page_v1 {
     private String type;
     private String page;
 
@@ -19,7 +19,7 @@ public class changePage {
     }
 }
 
-class changePageSeeDetails extends changePage{
+class changePageSeeDetails extends Page_v1{
     private String movie;
 
     public String getMovie() {
@@ -32,7 +32,7 @@ class changePageSeeDetails extends changePage{
 }
 
 // Buy premium account, Purchase, Watch, Like.
-class onPage extends changePage{
+class onPage extends Page_v1{
     private String feature;
 }
 
@@ -96,7 +96,19 @@ class rateMovie extends onPage{
     }
 }
 
-class Filters extends onPage{
+class Filter extends onPage{
+    private Filters filters;
+
+    public Filters getFilters() {
+        return filters;
+    }
+
+    public void setFilters(Filters filters) {
+        this.filters = filters;
+    }
+}
+
+class Filters{
     Sort sort;
     Contains contains;
 

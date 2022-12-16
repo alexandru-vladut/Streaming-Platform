@@ -1,7 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Output {
-    private String error;
-    private currentMovie[] currentMoviesList;
-    private currentUser currentUser;
+    private String error = null;
+    private List<currentMovie> currentMoviesList;
+    private currentUser currentUser = null;
+
+    public Output(String error, List<currentMovie> currentMoviesList, currentUser currentUser) {
+        this.error = error;
+        this.currentMoviesList = currentMoviesList;
+        this.currentUser = currentUser;
+    }
 
     public String getError() {
         return error;
@@ -11,11 +20,11 @@ public class Output {
         this.error = error;
     }
 
-    public currentMovie[] getCurrentMoviesList() {
+    public List<currentMovie> getCurrentMoviesList() {
         return currentMoviesList;
     }
 
-    public void setCurrentMoviesList(currentMovie[] currentMoviesList) {
+    public void setCurrentMoviesList(List<currentMovie> currentMoviesList) {
         this.currentMoviesList = currentMoviesList;
     }
 
@@ -31,10 +40,19 @@ public class Output {
 class currentUser extends User{
     private int tokensCount = 0;
     private int numFreePremiumMovies = 15;
-    private currentMovie[] purchasedMovies;
-    private currentMovie[] watchedMovies;
-    private currentMovie[] likedMovies;
-    private currentMovie[] ratedMovies;
+    private List<currentMovie> purchasedMovies;
+    private List<currentMovie> watchedMovies;
+    private List<currentMovie> likedMovies;
+    private List<currentMovie> ratedMovies;
+
+    public currentUser(Credentials credentials) {
+        super(credentials);
+        purchasedMovies = new ArrayList<>();
+        watchedMovies = new ArrayList<>();
+        likedMovies = new ArrayList<>();
+        ratedMovies = new ArrayList<>();
+    }
+
 
     public int getTokensCount() {
         return tokensCount;
@@ -52,43 +70,52 @@ class currentUser extends User{
         this.numFreePremiumMovies = numFreePremiumMovies;
     }
 
-    public currentMovie[] getPurchasedMovies() {
+    public List<currentMovie> getPurchasedMovies() {
         return purchasedMovies;
     }
 
-    public void setPurchasedMovies(currentMovie[] purchasedMovies) {
+    public void setPurchasedMovies(List<currentMovie> purchasedMovies) {
         this.purchasedMovies = purchasedMovies;
     }
 
-    public currentMovie[] getWatchedMovies() {
+    public List<currentMovie> getWatchedMovies() {
         return watchedMovies;
     }
 
-    public void setWatchedMovies(currentMovie[] watchedMovies) {
+    public void setWatchedMovies(List<currentMovie> watchedMovies) {
         this.watchedMovies = watchedMovies;
     }
 
-    public currentMovie[] getLikedMovies() {
+    public List<currentMovie> getLikedMovies() {
         return likedMovies;
     }
 
-    public void setLikedMovies(currentMovie[] likedMovies) {
+    public void setLikedMovies(List<currentMovie> likedMovies) {
         this.likedMovies = likedMovies;
     }
 
-    public currentMovie[] getRatedMovies() {
+    public List<currentMovie> getRatedMovies() {
         return ratedMovies;
     }
 
-    public void setRatedMovies(currentMovie[] ratedMovies) {
+    public void setRatedMovies(List<currentMovie> ratedMovies) {
         this.ratedMovies = ratedMovies;
     }
 }
 
 class currentMovie extends Movie{
-    private int numLikes = 0;
-    private double rating = 0;
-    private int numRatings = 0;
+    private int numLikes;
+    private double rating;
+    private int numRatings;
+
+    public currentMovie(String name, int year, int duration, List<String> genres, List<String> actors, List<String> countriesBanned) {
+        super(name, year, duration, genres, actors, countriesBanned);
+        numLikes = 0;
+        rating = 0;
+        numRatings = 0;
+    }
+
+    public currentMovie() {}
 
     public int getNumLikes() {
         return numLikes;
