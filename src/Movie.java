@@ -1,4 +1,59 @@
+import java.util.ArrayList;
 import java.util.List;
+
+class currentMovie extends Movie{
+    private int numLikes = 0;
+    private double rating = 0;
+    private int numRatings = 0;
+
+    public currentMovie(String name, int year, int duration, List<String> genres, List<String> actors, List<String> countriesBanned) {
+        super(name, year, duration, genres, actors, countriesBanned);
+    }
+
+    public currentMovie(String name, int year, int duration, List<String> genres, List<String> actors, List<String> countriesBanned, int numLikes, double rating, int numRatings) {
+        super(name, year, duration, genres, actors, countriesBanned);
+        this.numLikes = numLikes;
+        this.rating = rating;
+        this.numRatings = numRatings;
+    }
+
+    public currentMovie(currentMovie currentMovie) {
+        super(currentMovie);
+        this.numLikes = currentMovie.numLikes;
+        this.rating = currentMovie.rating;
+        this.numRatings = currentMovie.numRatings;
+    }
+
+    public currentMovie(Movie movie) {
+        super(movie);
+    }
+
+    public currentMovie() {}
+
+    public int getNumLikes() {
+        return numLikes;
+    }
+
+    public void setNumLikes(int numLikes) {
+        this.numLikes = numLikes;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public int getNumRatings() {
+        return numRatings;
+    }
+
+    public void setNumRatings(int numRatings) {
+        this.numRatings = numRatings;
+    }
+}
 
 public class Movie{
     private String name;
@@ -15,6 +70,15 @@ public class Movie{
         this.genres = genres;
         this.actors = actors;
         this.countriesBanned = countriesBanned;
+    }
+
+    public Movie(Movie movie) {
+        this.name = movie.name;
+        this.year = movie.year;
+        this.duration = movie.duration;
+        this.genres = new ArrayList<>(movie.genres);
+        this.actors = new ArrayList<>(movie.actors);
+        this.countriesBanned = new ArrayList<>(movie.countriesBanned);
     }
 
     public Movie() {}
