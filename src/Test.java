@@ -195,19 +195,6 @@ public final class Test {
         }
     }
 
-//    private static Future<Object> createTimerTask(final String[] argv) {
-//        ExecutorService executor = Executors.newCachedThreadPool();
-//        Callable<Object> task = () -> {
-//            if (argv[0].equals("C:\\Users\\alexn\\Desktop\\OOP-Project\\checker\\resources\\in\\basic_7.json")) {
-//                Main.main(argv);
-//                return null;
-//            }
-//            return null;
-//        };
-//
-//        return executor.submit(task);
-//    }
-
     private static Future<Object> createTimerTask(final String[] argv) {
         ExecutorService executor = Executors.newCachedThreadPool();
         Callable<Object> task = () -> {

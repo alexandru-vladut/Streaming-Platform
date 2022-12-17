@@ -1,40 +1,43 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class currentMovie extends Movie{
+class CurrentMovie extends Movie {
     private int numLikes = 0;
     private double rating = 0;
     private int numRatings = 0;
 
-    public currentMovie(String name, int year, int duration, List<String> genres, List<String> actors, List<String> countriesBanned) {
+    CurrentMovie(final String name, final int year, final int duration, final List<String> genres,
+                 final List<String> actors, final List<String> countriesBanned) {
         super(name, year, duration, genres, actors, countriesBanned);
     }
 
-    public currentMovie(String name, int year, int duration, List<String> genres, List<String> actors, List<String> countriesBanned, int numLikes, double rating, int numRatings) {
+    CurrentMovie(final String name, final int year, final int duration, final List<String> genres,
+                 final List<String> actors, final List<String> countriesBanned, final int numLikes,
+                 final double rating, final int numRatings) {
         super(name, year, duration, genres, actors, countriesBanned);
         this.numLikes = numLikes;
         this.rating = rating;
         this.numRatings = numRatings;
     }
 
-    public currentMovie(currentMovie currentMovie) {
+    CurrentMovie(final CurrentMovie currentMovie) {
         super(currentMovie);
         this.numLikes = currentMovie.numLikes;
         this.rating = currentMovie.rating;
         this.numRatings = currentMovie.numRatings;
     }
 
-    public currentMovie(Movie movie) {
+    CurrentMovie(final Movie movie) {
         super(movie);
     }
 
-    public currentMovie() {}
+    CurrentMovie() { }
 
     public int getNumLikes() {
         return numLikes;
     }
 
-    public void setNumLikes(int numLikes) {
+    public void setNumLikes(final int numLikes) {
         this.numLikes = numLikes;
     }
 
@@ -42,7 +45,7 @@ class currentMovie extends Movie{
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(final double rating) {
         this.rating = rating;
     }
 
@@ -50,12 +53,12 @@ class currentMovie extends Movie{
         return numRatings;
     }
 
-    public void setNumRatings(int numRatings) {
+    public void setNumRatings(final int numRatings) {
         this.numRatings = numRatings;
     }
 }
 
-public class Movie{
+public class Movie {
     private String name;
     private int year;
     private int duration;
@@ -63,7 +66,8 @@ public class Movie{
     private List<String> actors;
     private List<String> countriesBanned;
 
-    public Movie(String name, int year, int duration, List<String> genres, List<String> actors, List<String> countriesBanned) {
+    Movie(final String name, final int year, final int duration, final List<String> genres,
+          final List<String> actors, final List<String> countriesBanned) {
         this.name = name;
         this.year = year;
         this.duration = duration;
@@ -72,7 +76,7 @@ public class Movie{
         this.countriesBanned = countriesBanned;
     }
 
-    public Movie(Movie movie) {
+    Movie(final Movie movie) {
         this.name = movie.name;
         this.year = movie.year;
         this.duration = movie.duration;
@@ -81,53 +85,101 @@ public class Movie{
         this.countriesBanned = new ArrayList<>(movie.countriesBanned);
     }
 
-    public Movie() {}
+    Movie() { }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    /**
+     *
+     * @param name
+     */
+    public void setName(final String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    /**
+     *
+     * @param year
+     */
+    public void setYear(final int year) {
         this.year = year;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    /**
+     *
+     * @param duration
+     */
+    public void setDuration(final int duration) {
         this.duration = duration;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getGenres() {
         return genres;
     }
 
-    public void setGenres(List<String> genres) {
+    /**
+     *
+     * @param genres
+     */
+    public void setGenres(final List<String> genres) {
         this.genres = genres;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getActors() {
         return actors;
     }
 
-    public void setActors(List<String> actors) {
+    /**
+     *
+     * @param actors
+     */
+    public void setActors(final List<String> actors) {
         this.actors = actors;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getCountriesBanned() {
         return countriesBanned;
     }
 
-    public void setCountriesBanned(List<String> countriesBanned) {
+    /**
+     *
+     * @param countriesBanned
+     */
+    public void setCountriesBanned(final List<String> countriesBanned) {
         this.countriesBanned = countriesBanned;
     }
 }
