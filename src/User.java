@@ -1,55 +1,153 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class currentUser extends User {
+    private int tokensCount = 0;
+    private int numFreePremiumMovies = 15;
+    private List<CurrentMovie> purchasedMovies;
+    private List<CurrentMovie> watchedMovies;
+    private List<CurrentMovie> likedMovies;
+    private List<CurrentMovie> ratedMovies;
+
+    currentUser(final Credentials credentials) {
+        super(credentials);
+        purchasedMovies = new ArrayList<>();
+        watchedMovies = new ArrayList<>();
+        likedMovies = new ArrayList<>();
+        ratedMovies = new ArrayList<>();
+    }
+
+    currentUser(final Credentials credentials, final int tokensCount,
+                final int numFreePremiumMovies, final List<CurrentMovie> purchasedMovies,
+                final List<CurrentMovie> watchedMovies, final List<CurrentMovie> likedMovies,
+                final List<CurrentMovie> ratedMovies) {
+        super(credentials);
+        this.tokensCount = tokensCount;
+        this.numFreePremiumMovies = numFreePremiumMovies;
+        this.purchasedMovies = purchasedMovies;
+        this.watchedMovies = watchedMovies;
+        this.likedMovies = likedMovies;
+        this.ratedMovies = ratedMovies;
+    }
+
+    currentUser(final Credentials credentials, final currentUser currentUser) {
+        super(credentials);
+        this.tokensCount = currentUser.tokensCount;
+        this.numFreePremiumMovies = currentUser.numFreePremiumMovies;
+
+        this.purchasedMovies = new ArrayList<>();
+        for (CurrentMovie movie : currentUser.getPurchasedMovies()) {
+            CurrentMovie movieCopy = new CurrentMovie(movie);
+            this.purchasedMovies.add(movieCopy);
+        }
+
+        this.watchedMovies = new ArrayList<>();
+        for (CurrentMovie movie : currentUser.getWatchedMovies()) {
+            CurrentMovie movieCopy = new CurrentMovie(movie);
+            this.watchedMovies.add(movieCopy);
+        }
+
+        this.likedMovies = new ArrayList<>();
+        for (CurrentMovie movie : currentUser.getLikedMovies()) {
+            CurrentMovie movieCopy = new CurrentMovie(movie);
+            this.likedMovies.add(movieCopy);
+        }
+
+        this.ratedMovies = new ArrayList<>();
+        for (CurrentMovie movie : currentUser.getRatedMovies()) {
+            CurrentMovie movieCopy = new CurrentMovie(movie);
+            this.ratedMovies.add(movieCopy);
+        }
+    }
+
+    public int getTokensCount() {
+        return tokensCount;
+    }
+
+    public void setTokensCount(final int tokensCount) {
+        this.tokensCount = tokensCount;
+    }
+
+    public int getNumFreePremiumMovies() {
+        return numFreePremiumMovies;
+    }
+
+    public void setNumFreePremiumMovies(final int numFreePremiumMovies) {
+        this.numFreePremiumMovies = numFreePremiumMovies;
+    }
+
+    public List<CurrentMovie> getPurchasedMovies() {
+        return purchasedMovies;
+    }
+
+    public void setPurchasedMovies(final List<CurrentMovie> purchasedMovies) {
+        this.purchasedMovies = purchasedMovies;
+    }
+
+    public List<CurrentMovie> getWatchedMovies() {
+        return watchedMovies;
+    }
+
+    public void setWatchedMovies(final List<CurrentMovie> watchedMovies) {
+        this.watchedMovies = watchedMovies;
+    }
+
+    public List<CurrentMovie> getLikedMovies() {
+        return likedMovies;
+    }
+
+    public void setLikedMovies(final List<CurrentMovie> likedMovies) {
+        this.likedMovies = likedMovies;
+    }
+
+    public List<CurrentMovie> getRatedMovies() {
+        return ratedMovies;
+    }
+
+    public void setRatedMovies(final List<CurrentMovie> ratedMovies) {
+        this.ratedMovies = ratedMovies;
+    }
+}
+
 public class User {
     private Credentials credentials;
 
-    public User(Credentials credentials) {
+    User(final Credentials credentials) {
         this.credentials = credentials;
     }
 
-    public User() {}
+    User(final User user) {
+        this.credentials = new Credentials(user.credentials);
+    }
 
+    User() { }
+
+    /**
+     *
+     * @return
+     */
     public Credentials getCredentials() {
         return credentials;
     }
 
-    public void setCredentials(Credentials credentials) {
+    /**
+     *
+     * @param credentials
+     */
+    public void setCredentials(final Credentials credentials) {
         this.credentials = credentials;
     }
 }
 
-//class loginCredentials{
-//    private String name;
-//    private String password;
-//
-//    public loginCredentials(String name, String password) {
-//        this.name = name;
-//        this.password = password;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
-//}
-
-class Credentials{
+class Credentials {
     private String name;
     private String password;
     private String accountType;
     private String country;
     private String balance;
 
-    public Credentials(String name, String password, String accountType, String country, String balance) {
+    Credentials(final String name, final String password, final String accountType,
+                final String country, final String balance) {
         this.name = name;
         this.password = password;
         this.accountType = accountType;
@@ -57,13 +155,21 @@ class Credentials{
         this.balance = balance;
     }
 
-    public Credentials() {}
+    Credentials(final Credentials credentials) {
+        this.name = credentials.name;
+        this.password = credentials.password;
+        this.accountType = credentials.accountType;
+        this.country = credentials.country;
+        this.balance = credentials.balance;
+    }
+
+    Credentials() { }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -71,7 +177,7 @@ class Credentials{
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 
@@ -79,7 +185,7 @@ class Credentials{
         return accountType;
     }
 
-    public void setAccountType(String accountType) {
+    public void setAccountType(final String accountType) {
         this.accountType = accountType;
     }
 
@@ -87,7 +193,7 @@ class Credentials{
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(final String country) {
         this.country = country;
     }
 
@@ -95,7 +201,7 @@ class Credentials{
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(final String balance) {
         this.balance = balance;
     }
 }
