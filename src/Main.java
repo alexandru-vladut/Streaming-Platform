@@ -15,23 +15,24 @@ public class Main {
     static final int TEN = 10;
     static final int TWO = 2;
     static final int FIVE = 5;
+
     /**
      *
      * @param args
      * @throws IOException
      */
     public static void main(final String[] args) throws IOException {
-/**
- * JSON ObjectMapper preparing.
- */
+        /**
+         * JSON ObjectMapper preparing.
+         */
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
 
 
-/**
- * Read from JSON.
- * java.io.File File = Paths.get("checker/resources/in/basic_5.json").toFile();
- */
+        /**
+         * Read from JSON.
+         * java.io.File File = Paths.get("checker/resources/in/basic_5.json").toFile();
+         */
         java.io.File File = Paths.get(args[0]).toFile();
         JsonNode jsonNode = objectMapper.readTree(File);
 
@@ -47,9 +48,9 @@ public class Main {
                 new TypeReference<List<Action>>() { });
 
 
-/**
- * Iterating through the actions.
- */
+        /**
+         * Initialising auxiliary variables.
+         */
         List<Output> outputs = new ArrayList<Output>();
         String currentPage = new String("homepage neautentificat");
         currentUser currentUser = null;
@@ -67,16 +68,19 @@ public class Main {
 
         CurrentMovie actualMovie = null;
 
+        /**
+         * Iterating through the actions.
+         */
         for (Action action : actions) {
 
-/**
- * CHANGE PAGE
- */
             if (!action.getType().equals("change page") && !action.getType().equals("on page")) {
                 errorOutput(outputs);
                 break;
             }
 
+            /**
+             * CHANGE PAGE
+             */
             if (action.getType().equals("change page")) {
 
                 String newPage = action.getPage();
@@ -177,6 +181,7 @@ public class Main {
                         }
 
                         successOutput(outputs, resetMovies, currentUser);
+                        //
 
                         currentMovies = new ArrayList<>();
                         for (CurrentMovie movie : resetMovies) {
@@ -225,9 +230,9 @@ public class Main {
                         break;
 
                 }
-/**
- * ON PAGE
- */
+            /**
+             * ON PAGE
+             */
             } else if (action.getType().equals("on page")) {
 
                 String feature = action.getFeature();
@@ -844,12 +849,12 @@ public class Main {
             }
         }
 
-/**
- * Write to JSON.
- * java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
- * objectWriter.writeValue(resultFile, outputs);
- * System.out.println(args[0]);
- */
+        /**
+         * Write to JSON.
+         * java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
+         * objectWriter.writeValue(resultFile, outputs);
+         * System.out.println(args[0]);
+         */
         objectWriter.writeValue(new File(args[1]), outputs);
 
     }
@@ -877,159 +882,6 @@ public class Main {
         outputs.add(currentOutput);
     }
 
-}
-
-/**
- * rating: increasing
- * duration: increasing
- */
-class IncreasingIncreasing implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getDuration() == cM2.getDuration()) {
-
-            if (cM1.getRating() == cM2.getRating()) {
-                return 0;
-            } else if (cM1.getRating() < cM2.getRating()) {
-                return -1;
-            } else {
-                return 1;
-            }
-        } else if (cM1.getDuration() < cM2.getDuration()) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-}
-
-/**
- * rating: increasing
- * duration: decreasing
- */
-class IncreasingDecreasing implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getDuration() == cM2.getDuration()) {
-            if (cM1.getRating() == cM2.getRating()) {
-                return 0;
-            } else if (cM1.getRating() < cM2.getRating()) {
-                return -1;
-            } else {
-                return 1;
-            }
-        } else if (cM1.getDuration() < cM2.getDuration()) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
-}
-
-/**
- * rating: decreasing
- * duration: increasing
- */
-class DecreasingIncreasing implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getDuration() == cM2.getDuration()) {
-            if (cM1.getRating() == cM2.getRating()) {
-                return 0;
-            } else if (cM1.getRating() < cM2.getRating()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        } else if (cM1.getDuration() < cM2.getDuration()) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-}
-
-/**
- * rating: decreasing
- * duration: decreasing
- */
-class DecreasingDecreasing implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getDuration() == cM2.getDuration()) {
-            if (cM1.getRating() == cM2.getRating()) {
-                return 0;
-            } else if (cM1.getRating() < cM2.getRating()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        } else if (cM1.getDuration() < cM2.getDuration()) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
-}
-
-/**
- * rating: increasing
- * duration: null
- */
-class IncreasingNull implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getRating() == cM2.getRating()) {
-            return 0;
-        } else if (cM1.getRating() < cM2.getRating()) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-}
-
-/**
- * rating: decreasing
- * duration: null
- */
-class DecreasingNull implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getRating() == cM2.getRating()) {
-            return 0;
-        } else if (cM1.getRating() < cM2.getRating()) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
-}
-
-/**
- * rating: null
- * duration: increasing
- */
-class NullIncreasing implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getDuration() == cM2.getDuration()) {
-            return 0;
-        } else if (cM1.getDuration() < cM2.getDuration()) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-}
-
-/**
- * rating: null
- * duration: decreasing
- */
-class NullDecreasing implements Comparator<CurrentMovie> {
-    public int compare(final CurrentMovie cM1, final CurrentMovie cM2) {
-        if (cM1.getDuration() == cM2.getDuration()) {
-            return 0;
-        } else if (cM1.getDuration() < cM2.getDuration()) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
 }
 
 

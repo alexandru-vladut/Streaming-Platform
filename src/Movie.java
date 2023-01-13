@@ -31,7 +31,8 @@ class CurrentMovie extends Movie {
         super(movie);
     }
 
-    CurrentMovie() { }
+    CurrentMovie() {
+    }
 
     public int getNumLikes() {
         return numLikes;
