@@ -16,25 +16,21 @@ public class Main {
     static final int TWO = 2;
     static final int FIVE = 5;
 
-    /**
-     *
-     * @param args
-     * @throws IOException
-     */
     public static void main(final String[] args) throws IOException {
-        /**
-         * JSON ObjectMapper preparing.
+
+        /*
+          JSON ObjectMapper preparing.
          */
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
 
 
-        /**
-         * Read from JSON.
-         * java.io.File File = Paths.get("checker/resources/in/basic_5.json").toFile();
+        /*
+          Read from JSON.
+          java.io.File File = Paths.get("checker/resources/in/basic_10.json").toFile();
          */
-        java.io.File File = Paths.get(args[0]).toFile();
-        JsonNode jsonNode = objectMapper.readTree(File);
+        java.io.File myFile = Paths.get(args[0]).toFile();
+        JsonNode jsonNode = objectMapper.readTree(myFile);
 
         String arrayString = jsonNode.get("users").toString();
         List<User> users = objectMapper.readValue(arrayString, new TypeReference<List<User>>() { });
@@ -47,15 +43,48 @@ public class Main {
         List<Action> actions = objectMapper.readValue(arrayString,
                 new TypeReference<List<Action>>() { });
 
-
-        /**
-         * Initialising auxiliary variables.
+        /*
+          Initialising database with default user information and its CurrentMovies List.
          */
-        List<Output> outputs = new ArrayList<Output>();
+        List<InputDatabase> inputDatabases = new ArrayList<InputDatabase>();
+        for (User user: users) {
+            InputDatabase dbEntry = new InputDatabase();
+
+            currentUser newCurrentUser = new currentUser(user.getCredentials());
+            dbEntry.setDbUser(newCurrentUser);
+
+            List<CurrentMovie> newCurrentMovies = new ArrayList<>();
+            for (Movie movie : movies) {
+                boolean isBanned = false;
+                for (String bannedCountry : movie.getCountriesBanned()) {
+                    String aux = user.getCredentials().getCountry();
+                    if (aux.equals(bannedCountry)) {
+                        isBanned = true;
+                        break;
+                    }
+                }
+
+                if (!isBanned) {
+                    CurrentMovie currentMovie = new CurrentMovie(movie);
+                    newCurrentMovies.add(currentMovie);
+                }
+            }
+            dbEntry.setDbCurrentMovies(newCurrentMovies);
+
+            inputDatabases.add(dbEntry);
+        }
+
+
+        /*
+          Initialising auxiliary variables for current (active) information.
+         */
         String currentPage = new String("homepage neautentificat");
         currentUser currentUser = null;
         List<CurrentMovie> currentMovies = new ArrayList<>();
 
+        /*
+          Initialising auxiliary hashmaps for rating calculus.
+         */
         HashMap<String, Double> ratingsSum = new HashMap<String, Double>();
         for (Movie movie : movies) {
             ratingsSum.put(movie.getName(), 0.00);
@@ -66,10 +95,18 @@ public class Main {
             ratingsNum.put(movie.getName(), 0);
         }
 
+        /*
+          Initialising auxiliary variable for chosen movie in See Details page.
+         */
         CurrentMovie actualMovie = null;
 
-        /**
-         * Iterating through the actions.
+        /*
+          Initialising auxiliary variable for outputs storing.
+         */
+        List<Output> outputs = new ArrayList<Output>();
+
+        /*
+          Iterating through the actions.
          */
         for (Action action : actions) {
 
@@ -78,53 +115,51 @@ public class Main {
                 break;
             }
 
-            /**
-             * CHANGE PAGE
+            /*
+              CHANGE PAGE
              */
             if (action.getType().equals("change page")) {
 
                 String newPage = action.getPage();
+
                 switch (newPage) {
-                    case "login":
+
+                    case "login" -> {
                         if (!currentPage.equals("homepage neautentificat")) {
                             errorOutput(outputs);
                             break;
                         }
-
                         currentPage = "login";
-                        break;
+                    }
 
-                    case "register":
+                    case "register" -> {
                         if (!currentPage.equals("homepage neautentificat")) {
                             errorOutput(outputs);
                             break;
                         }
-
                         currentPage = "register";
-                        break;
+                    }
 
-                    case "homepage autentificat":
+                    case "homepage autentificat" -> {
                         if (!currentPage.equals("movies")
                                 && !currentPage.equals("see details")
                                 && !currentPage.equals("upgrades")) {
                             errorOutput(outputs);
                             break;
                         }
-
                         currentPage = "homepage autentificat";
-                        break;
+                    }
 
-                    case "upgrades":
+                    case "upgrades" -> {
                         if (!currentPage.equals("see details")
                                 && !currentPage.equals("homepage autentificat")) {
                             errorOutput(outputs);
                             break;
                         }
-
                         currentPage = "upgrades";
-                        break;
+                    }
 
-                    case "logout":
+                    case "logout" -> {
                         if (!currentPage.equals("see details") && !currentPage.equals("movies")
                                 && !currentPage.equals("upgrades")
                                 && !currentPage.equals("homepage autentificat")) {
@@ -134,110 +169,82 @@ public class Main {
 
                         currentPage = "homepage neautentificat";
                         currentUser = null;
-                        break;
+                    }
 
-                    case "movies":
+                    case "movies" -> {
                         if (!currentPage.equals("homepage autentificat")
                                 && !currentPage.equals("see details")
-                                && !currentPage.equals("upgrades")) {
+                                && !currentPage.equals("upgrades")
+                                && !currentPage.equals("movies")) {
                             errorOutput(outputs);
                             break;
                         }
 
                         currentPage = "movies";
 
-                        List<CurrentMovie> resetMovies = new ArrayList<>();
+                        /*
+                          Updating currentMovies variable in case other actions modified it without
+                          rolling back to the original version afterwards (e.g. See Details page).
+                         */
+                        for (InputDatabase entry : inputDatabases) {
 
-                        for (Movie movie : movies) {
-                            boolean isBanned = false;
-                            for (String bannedCountry : movie.getCountriesBanned()) {
-                                String aux = currentUser.getCredentials().getCountry();
-                                if (aux.equals(bannedCountry)) {
-                                    isBanned = true;
-                                    break;
-                                }
-                            }
+                            assert currentUser != null;
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
 
-                            if (!isBanned) {
-                                boolean ok = false;
-                                for (CurrentMovie movie1 : currentMovies) {
-                                    if (movie.getName().equals(movie1.getName())) {
-
-                                        ok = true;
-                                        CurrentMovie currentMovie = new CurrentMovie(movie1);
-                                        resetMovies.add(currentMovie);
-
-                                        break;
-                                    }
+                            if (currentUserName.equals(entryUserName)) {
+                                currentMovies = new ArrayList<>();
+                                for (CurrentMovie movie : entry.getDbCurrentMovies()) {
+                                    CurrentMovie movieCopy = new CurrentMovie(movie);
+                                    currentMovies.add(movieCopy);
                                 }
 
-                                if (!ok) {
-
-                                    CurrentMovie currentMovie = new CurrentMovie(movie);
-                                    resetMovies.add(currentMovie);
-                                }
-
+                                break;
                             }
                         }
 
-                        successOutput(outputs, resetMovies, currentUser);
-                        //
+                        successOutput(outputs, currentMovies, currentUser);
+                    }
 
-                        currentMovies = new ArrayList<>();
-                        for (CurrentMovie movie : resetMovies) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMovies.add(movieCopy);
-                        }
-                        break;
-
-                    case "see details":
+                    case "see details" -> {
                         if (!currentPage.equals("movies")) {
                             errorOutput(outputs);
                             break;
                         }
 
-                        int index = -1;
-                        for (int i = 0; i < currentMovies.size(); i++) {
-                            if (action.getMovie().equals(currentMovies.get(i).getName())) {
+                        boolean found = false;
+                        for (CurrentMovie movie : currentMovies) {
+                            if (action.getMovie().equals(movie.getName())) {
+                                found = true;
+                                actualMovie = new CurrentMovie(movie);
 
-                                index = i;
-                                actualMovie = new CurrentMovie(currentMovies.get(i));
                                 break;
                             }
                         }
 
-                        if (index == -1) {
+                        if (!found) {
                             errorOutput(outputs);
                             break;
                         }
 
                         currentPage = "see details";
 
-                        List<CurrentMovie> seeDetailsMovie = new ArrayList<>();
-                        seeDetailsMovie.add(currentMovies.get(index));
-
-                        successOutput(outputs, seeDetailsMovie, currentUser);
-
                         currentMovies = new ArrayList<>();
-                        for (CurrentMovie movie : seeDetailsMovie) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMovies.add(movieCopy);
-                        }
-                        break;
+                        currentMovies.add(actualMovie);
 
-                    default:
-                        errorOutput(outputs);
-                        break;
-
+                        successOutput(outputs, currentMovies, currentUser);
+                    }
                 }
-            /**
-             * ON PAGE
+            /*
+              ON PAGE
              */
             } else if (action.getType().equals("on page")) {
 
                 String feature = action.getFeature();
+
                 switch (feature) {
-                    case "register":
+
+                    case "register" -> {
                         if (!currentPage.equals("register")) {
                             errorOutput(outputs);
                             break;
@@ -247,8 +254,8 @@ public class Main {
                         String newName = newCredentials.getName();
 
                         boolean alreadyExists = false;
-                        for (User user : users) {
-                            if (newName.equals(user.getCredentials().getName())) {
+                        for (InputDatabase entry : inputDatabases) {
+                            if (newName.equals(entry.getDbUser().getCredentials().getName())) {
                                 alreadyExists = true;
                                 break;
                             }
@@ -262,15 +269,56 @@ public class Main {
 
                         currentPage = "homepage autentificat";
 
-                        User newUser = new User(newCredentials);
-                        users.add(newUser);
+                        /*
+                          Creating new database entry for registered user.
+                         */
+                        InputDatabase dbEntry = new InputDatabase();
 
-                        currentUser = new currentUser(newCredentials);
+                        /*
+                          Setting up dbUser field.
+                         */
+                        currentUser newCurrentUser = new currentUser(newCredentials);
+                        dbEntry.setDbUser(newCurrentUser);
 
-                        successOutput(outputs, currentMovies, currentUser);
-                        break;
+                        /*
+                          Setting up dbCurrentMovies field.
+                         */
+                        List<CurrentMovie> newCurrentMovies = new ArrayList<>();
+                        for (Movie movie : movies) {
 
-                    case "login":
+                            boolean isBanned = false;
+                            for (String bannedCountry : movie.getCountriesBanned()) {
+
+                                String aux = newCredentials.getCountry();
+
+                                if (aux.equals(bannedCountry)) {
+                                    isBanned = true;
+                                    break;
+                                }
+                            }
+
+                            if (!isBanned) {
+                                CurrentMovie currentMovie = new CurrentMovie(movie);
+                                newCurrentMovies.add(currentMovie);
+                            }
+                        }
+                        dbEntry.setDbCurrentMovies(newCurrentMovies);
+
+                        /*
+                          Adding new entry to database.
+                         */
+                        inputDatabases.add(dbEntry);
+
+                        currentUser = new currentUser(dbEntry.getDbUser().getCredentials());
+                        currentMovies = new ArrayList<>();
+                        for (CurrentMovie movie : dbEntry.getDbCurrentMovies()) {
+                            currentMovies.add(new CurrentMovie(movie));
+                        }
+
+                        successOutput(outputs, Collections.emptyList(), currentUser);
+                    }
+
+                    case "login" -> {
                         if (!currentPage.equals("login")) {
                             errorOutput(outputs);
                             break;
@@ -281,11 +329,22 @@ public class Main {
                         String loginPassword = loginCredentials.getPassword();
 
                         boolean authSuccess = false;
-                        for (User user : users) {
-                            if (loginName.equals(user.getCredentials().getName())
-                                    && loginPassword.equals(user.getCredentials().getPassword())) {
+                        for (InputDatabase entry : inputDatabases) {
+
+                            Credentials entryUserCredentials = entry.getDbUser().getCredentials();
+
+                            if (loginName.equals(entryUserCredentials.getName())
+                                    && loginPassword.equals(entryUserCredentials.getPassword())) {
                                 authSuccess = true;
-                                currentUser = new currentUser(user.getCredentials());
+
+                                currentUser = new currentUser(entryUserCredentials,
+                                        entry.getDbUser());
+
+                                currentMovies = new ArrayList<>();
+                                for (CurrentMovie movie : entry.getDbCurrentMovies()) {
+                                    currentMovies.add(new CurrentMovie(movie));
+                                }
+
                                 break;
                             }
                         }
@@ -299,9 +358,9 @@ public class Main {
                         currentPage = "homepage autentificat";
 
                         successOutput(outputs, Collections.emptyList(), currentUser);
-                        break;
+                    }
 
-                    case "search":
+                    case "search" -> {
                         if (!currentPage.equals("movies")) {
                             errorOutput(outputs);
                             break;
@@ -331,12 +390,34 @@ public class Main {
                         }
 
                         successOutput(outputs, currentMoviesCopyForSearch, currentUser);
-                        break;
+                    }
 
-                    case "filter":
+                    case "filter" -> {
                         if (!currentPage.equals("movies")) {
                             errorOutput(outputs);
                             break;
+                        }
+
+                        /*
+                          Updating currentMovies variable in case other actions modified it without
+                          rolling back to the original version afterwards (e.g. See Details page).
+                         */
+                        for (InputDatabase entry : inputDatabases) {
+
+                            assert currentUser != null;
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+
+                                currentMovies = new ArrayList<>();
+                                for (CurrentMovie movie : entry.getDbCurrentMovies()) {
+                                    CurrentMovie movieCopy = new CurrentMovie(movie);
+                                    currentMovies.add(movieCopy);
+                                }
+
+                                break;
+                            }
                         }
 
                         List<CurrentMovie> currentMoviesCopyForFilter = new ArrayList<>();
@@ -419,21 +500,21 @@ public class Main {
                             }
                         }
 
-                        successOutput(outputs, currentMoviesCopyForFilter, currentUser);
-
                         currentMovies = new ArrayList<>();
                         for (CurrentMovie movie : currentMoviesCopyForFilter) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMovies.add(movieCopy);
+                            currentMovies.add(new CurrentMovie(movie));
                         }
-                        break;
 
-                    case "buy tokens":
+                        successOutput(outputs, currentMoviesCopyForFilter, currentUser);
+                    }
+
+                    case "buy tokens" -> {
                         if (!currentPage.equals("upgrades")) {
                             errorOutput(outputs);
                             break;
                         }
 
+                        assert currentUser != null;
                         Credentials credentialsCopyForTokens =
                                 new Credentials(currentUser.getCredentials());
                         currentUser currentUserCopyForTokens =
@@ -450,24 +531,36 @@ public class Main {
                         }
 
                         currentBalanceForTokens -= tokensWanted;
-                        currentTokensForTokens += tokensWanted;
-
                         String aux2 = Integer.toString(currentBalanceForTokens);
                         currentUserCopyForTokens.getCredentials().setBalance(aux2);
+
+                        currentTokensForTokens += tokensWanted;
                         currentUserCopyForTokens.setTokensCount(currentTokensForTokens);
 
-                        Credentials credentialsForTokens =
-                                new Credentials(currentUserCopyForTokens.getCredentials());
-                        currentUser = new currentUser(credentialsForTokens,
+                        currentUser = new currentUser(credentialsCopyForTokens,
                                 currentUserCopyForTokens);
-                        break;
 
-                    case "buy premium account":
+                        for (InputDatabase entry : inputDatabases) {
+
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+                                entry.setDbUser(new currentUser(credentialsCopyForTokens,
+                                        currentUserCopyForTokens));
+
+                                break;
+                            }
+                        }
+                    }
+
+                    case "buy premium account" -> {
                         if (!currentPage.equals("upgrades")) {
                             errorOutput(outputs);
                             break;
                         }
 
+                        assert currentUser != null;
                         if (!currentUser.getCredentials().getAccountType().equals("standard")) {
                             errorOutput(outputs);
                             break;
@@ -490,26 +583,41 @@ public class Main {
                         currentUserCopyForPremium.setTokensCount(currentTokensForPremium);
                         currentUserCopyForPremium.getCredentials().setAccountType("premium");
 
-                        Credentials credentialsForPremium =
-                                new Credentials(currentUserCopyForPremium.getCredentials());
-                        currentUser = new currentUser(credentialsForPremium,
+                        currentUser = new currentUser(credentialsCopyForPremium,
                                 currentUserCopyForPremium);
-                        break;
 
-                    case "purchase":
+                        for (InputDatabase entry : inputDatabases) {
+
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+                                entry.setDbUser(new currentUser(credentialsCopyForPremium,
+                                        currentUserCopyForPremium));
+
+                                break;
+                            }
+                        }
+                    }
+
+                    case "purchase" -> {
                         if (!currentPage.equals("see details")) {
                             errorOutput(outputs);
                             break;
                         }
 
-                        if (action.getMovie() != null
-                                && !action.getMovie().equals(actualMovie.getName())) {
-                            errorOutput(outputs);
-                            break;
+                        if (action.getMovie() != null) {
+                            assert actualMovie != null;
+                            if (!action.getMovie().equals(actualMovie.getName())) {
+                                errorOutput(outputs);
+                                break;
+                            }
                         }
 
                         boolean found = false;
+                        assert currentUser != null;
                         for (CurrentMovie movie : currentUser.getPurchasedMovies()) {
+                            assert actualMovie != null;
                             if (actualMovie.getName().equals(movie.getName())) {
                                 found = true;
                                 break;
@@ -539,15 +647,6 @@ public class Main {
                             currentTokens -= TWO;
                             currentUserCopyForPurchase.setTokensCount(currentTokens);
 
-                            currentUserCopyForPurchase.getPurchasedMovies().add(actualMovie);
-
-                            successOutput(outputs, currentMovies, currentUserCopyForPurchase);
-
-                            Credentials credentialsForPurchase =
-                                    new Credentials(currentUserCopyForPurchase.getCredentials());
-                            currentUser = new currentUser(credentialsForPurchase,
-                                    currentUserCopyForPurchase);
-
                         } else if (aux3.getAccountType().equals("premium")) {
 
                             int currentNumFreePremiumMovies =
@@ -571,32 +670,47 @@ public class Main {
                                 currentUserCopyForPurchase.setTokensCount(currentTokens);
 
                             }
-
-                            currentUserCopyForPurchase.getPurchasedMovies().add(actualMovie);
-
-                            successOutput(outputs, currentMovies, currentUserCopyForPurchase);
-
-                            Credentials credentialsForPurchase =
-                                    new Credentials(currentUserCopyForPurchase.getCredentials());
-                            currentUser = new currentUser(credentialsForPurchase,
-                                    currentUserCopyForPurchase);
                         }
-                        break;
 
-                    case "watch":
+                        currentUserCopyForPurchase.getPurchasedMovies().add(actualMovie);
+
+                        currentUser = new currentUser(credentialsCopyForPurchase,
+                                currentUserCopyForPurchase);
+
+                        for (InputDatabase entry : inputDatabases) {
+
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+                                entry.setDbUser(new currentUser(credentialsCopyForPurchase,
+                                        currentUserCopyForPurchase));
+
+                                break;
+                            }
+                        }
+
+                        successOutput(outputs, currentMovies, currentUser);
+                    }
+
+                    case "watch" -> {
                         if (!currentPage.equals("see details")) {
                             errorOutput(outputs);
                             break;
                         }
 
-                        if (action.getMovie() != null
-                                && !action.getMovie().equals(actualMovie.getName())) {
-                            errorOutput(outputs);
-                            break;
+                        if (action.getMovie() != null) {
+                            assert actualMovie != null;
+                            if (!action.getMovie().equals(actualMovie.getName())) {
+                                errorOutput(outputs);
+                                break;
+                            }
                         }
 
                         boolean purchasedMovie = false;
+                        assert currentUser != null;
                         for (CurrentMovie movie : currentUser.getPurchasedMovies()) {
+                            assert actualMovie != null;
                             if (actualMovie.getName().equals(movie.getName())) {
                                 purchasedMovie = true;
                                 break;
@@ -615,28 +729,43 @@ public class Main {
 
                         currentUserCopyForWatch.getWatchedMovies().add(actualMovie);
 
-                        successOutput(outputs, currentMovies, currentUserCopyForWatch);
-
-                        Credentials credentialsForWatch =
-                                new Credentials(currentUserCopyForWatch.getCredentials());
-                        currentUser = new currentUser(credentialsForWatch,
+                        currentUser = new currentUser(credentialsCopyForWatch,
                                 currentUserCopyForWatch);
-                        break;
 
-                    case "like":
+                        for (InputDatabase entry : inputDatabases) {
+
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+                                entry.setDbUser(new currentUser(credentialsCopyForWatch,
+                                        currentUserCopyForWatch));
+
+                                break;
+                            }
+                        }
+
+                        successOutput(outputs, currentMovies, currentUser);
+                    }
+
+                    case "like" -> {
                         if (!currentPage.equals("see details")) {
                             errorOutput(outputs);
                             break;
                         }
 
-                        if (action.getMovie() != null
-                                && !action.getMovie().equals(actualMovie.getName())) {
-                            errorOutput(outputs);
-                            break;
+                        if (action.getMovie() != null) {
+                            assert actualMovie != null;
+                            if (!action.getMovie().equals(actualMovie.getName())) {
+                                errorOutput(outputs);
+                                break;
+                            }
                         }
 
                         boolean likedMovie = false;
+                        assert currentUser != null;
                         for (CurrentMovie movie : currentUser.getLikedMovies()) {
+                            assert actualMovie != null;
                             if (actualMovie.getName().equals(movie.getName())) {
                                 likedMovie = true;
                                 break;
@@ -650,8 +779,7 @@ public class Main {
 
                         List<CurrentMovie> currentMoviesCopyForLike = new ArrayList<>();
                         for (CurrentMovie movie : currentMovies) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMoviesCopyForLike.add(movieCopy);
+                            currentMoviesCopyForLike.add(new CurrentMovie(movie));
                         }
 
                         Credentials credentialsCopyForLike =
@@ -663,6 +791,7 @@ public class Main {
                         boolean watchedMovieForLike = false;
                         for (CurrentMovie movie : currentUserCopyForLike.getWatchedMovies()) {
 
+                            assert actualMovie != null;
                             if (actualMovie.getName().equals(movie.getName())) {
 
                                 watchedMovieForLike = true;
@@ -688,7 +817,7 @@ public class Main {
                             }
                         }
 
-                        for (CurrentMovie movie : currentMoviesCopyForLike) {
+                        for (CurrentMovie movie : currentUserCopyForLike.getRatedMovies()) {
                             if (actualMovie.getName().equals(movie.getName())) {
 
                                 movie.setNumLikes(currentNumLikes);
@@ -696,7 +825,7 @@ public class Main {
                             }
                         }
 
-                        for (CurrentMovie movie : currentUserCopyForLike.getRatedMovies()) {
+                        for (CurrentMovie movie : currentMoviesCopyForLike) {
                             if (actualMovie.getName().equals(movie.getName())) {
 
                                 movie.setNumLikes(currentNumLikes);
@@ -709,35 +838,55 @@ public class Main {
                         currentUserCopyForLike.getLikedMovies().add(actualMovieCopyForLike);
                         actualMovie = new CurrentMovie(actualMovieCopyForLike);
 
-                        successOutput(outputs, currentMoviesCopyForLike,
-                                currentUserCopyForLike);
-
-                        Credentials credentialsForLike =
-                                new Credentials(currentUserCopyForLike.getCredentials());
-                        currentUser = new currentUser(credentialsForLike,
+                        currentUser = new currentUser(credentialsCopyForLike,
                                 currentUserCopyForLike);
 
                         currentMovies = new ArrayList<>();
                         for (CurrentMovie movie : currentMoviesCopyForLike) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMovies.add(movieCopy);
+                            currentMovies.add(new CurrentMovie(movie));
                         }
 
-                        break;
+                        for (InputDatabase entry : inputDatabases) {
 
-                    case "rate":
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+                                entry.setDbUser(new currentUser(credentialsCopyForLike,
+                                        currentUserCopyForLike));
+                            }
+
+                            for (int i = 0; i < entry.getDbCurrentMovies().size(); i++) {
+
+                                CurrentMovie modifiedMovie = currentMovies.get(0);
+                                CurrentMovie modifiedEntry = entry.getDbCurrentMovies().get(i);
+
+                                if (modifiedMovie.getName().equals(modifiedEntry.getName())) {
+                                    CurrentMovie movieCopy = new CurrentMovie(modifiedMovie);
+                                    entry.getDbCurrentMovies().set(i, movieCopy);
+                                }
+                            }
+                        }
+
+                        successOutput(outputs, currentMovies, currentUser);
+                    }
+
+                    case "rate" -> {
                         if (!currentPage.equals("see details")) {
                             errorOutput(outputs);
                             break;
                         }
 
-                        if (action.getMovie() != null
-                                && !action.getMovie().equals(actualMovie.getName())) {
-                            errorOutput(outputs);
-                            break;
+                        if (action.getMovie() != null) {
+                            assert actualMovie != null;
+                            if (!action.getMovie().equals(actualMovie.getName())) {
+                                errorOutput(outputs);
+                                break;
+                            }
                         }
 
                         boolean ratedMovie = false;
+                        assert currentUser != null;
                         for (CurrentMovie movie : currentUser.getRatedMovies()) {
                             if (actualMovie.getName().equals(movie.getName())) {
                                 ratedMovie = true;
@@ -757,8 +906,7 @@ public class Main {
 
                         List<CurrentMovie> currentMoviesCopyForRate = new ArrayList<>();
                         for (CurrentMovie movie : currentMovies) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMoviesCopyForRate.add(movieCopy);
+                            currentMoviesCopyForRate.add(new CurrentMovie(movie));
                         }
 
                         Credentials credentialsCopyForRate =
@@ -775,12 +923,11 @@ public class Main {
                         ratingsNum.put(actualMovie.getName(), currentRatingsNum);
 
                         double newRating = currentRatingsSum / (double) currentRatingsNum;
-
                         boolean watchedMovieForRate = false;
                         for (CurrentMovie movie : currentUserCopyForRate.getWatchedMovies()) {
                             if (actualMovie.getName().equals(movie.getName())) {
-
                                 watchedMovieForRate = true;
+
                                 movie.setNumRatings(currentRatingsNum);
                                 movie.setRating(newRating);
 
@@ -793,30 +940,30 @@ public class Main {
                             break;
                         }
 
-                        for (CurrentMovie movie2
+                        for (CurrentMovie movie
                                 : currentUserCopyForRate.getPurchasedMovies()) {
-                            if (actualMovie.getName().equals(movie2.getName())) {
+                            if (actualMovie.getName().equals(movie.getName())) {
 
-                                movie2.setNumRatings(currentRatingsNum);
-                                movie2.setRating(newRating);
+                                movie.setNumRatings(currentRatingsNum);
+                                movie.setRating(newRating);
                                 break;
                             }
                         }
 
-                        for (CurrentMovie movie4 : currentMoviesCopyForRate) {
-                            if (actualMovie.getName().equals(movie4.getName())) {
+                        for (CurrentMovie movie : currentUserCopyForRate.getLikedMovies()) {
+                            if (actualMovie.getName().equals(movie.getName())) {
 
-                                movie4.setNumRatings(currentRatingsNum);
-                                movie4.setRating(newRating);
+                                movie.setNumRatings(currentRatingsNum);
+                                movie.setRating(newRating);
                                 break;
                             }
                         }
 
-                        for (CurrentMovie movie5 : currentUserCopyForRate.getLikedMovies()) {
-                            if (actualMovie.getName().equals(movie5.getName())) {
+                        for (CurrentMovie movie : currentMoviesCopyForRate) {
+                            if (actualMovie.getName().equals(movie.getName())) {
 
-                                movie5.setNumRatings(currentRatingsNum);
-                                movie5.setRating(newRating);
+                                movie.setNumRatings(currentRatingsNum);
+                                movie.setRating(newRating);
                                 break;
                             }
                         }
@@ -827,54 +974,58 @@ public class Main {
                         currentUserCopyForRate.getRatedMovies().add(actualMovieCopyForRate);
                         actualMovie = new CurrentMovie(actualMovieCopyForRate);
 
-                        successOutput(outputs, currentMoviesCopyForRate,
-                                currentUserCopyForRate);
-
-                        Credentials credentialsForRate =
-                                new Credentials(currentUserCopyForRate.getCredentials());
-                        currentUser = new currentUser(credentialsForRate,
+                        currentUser = new currentUser(credentialsCopyForRate,
                                 currentUserCopyForRate);
 
                         currentMovies = new ArrayList<>();
                         for (CurrentMovie movie : currentMoviesCopyForRate) {
-                            CurrentMovie movieCopy = new CurrentMovie(movie);
-                            currentMovies.add(movieCopy);
+                            currentMovies.add(new CurrentMovie(movie));
                         }
-                        break;
 
-                    default:
-                        break;
+                        for (InputDatabase entry : inputDatabases) {
+
+                            String currentUserName = currentUser.getCredentials().getName();
+                            String entryUserName = entry.getDbUser().getCredentials().getName();
+
+                            if (currentUserName.equals(entryUserName)) {
+                                entry.setDbUser(new currentUser(credentialsCopyForRate,
+                                        currentUserCopyForRate));
+                            }
+
+                            for (int i = 0; i < entry.getDbCurrentMovies().size(); i++) {
+
+                                CurrentMovie modifiedMovie = currentMovies.get(0);
+                                CurrentMovie modifiedEntry = entry.getDbCurrentMovies().get(i);
+
+                                if (modifiedMovie.getName().equals(modifiedEntry.getName())) {
+                                    CurrentMovie movieCopy = new CurrentMovie(modifiedMovie);
+                                    entry.getDbCurrentMovies().set(i, movieCopy);
+                                }
+                            }
+                        }
+
+                        successOutput(outputs, currentMovies, currentUser);
+                    }
                 }
 
             }
         }
 
-        /**
-         * Write to JSON.
-         * java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
-         * objectWriter.writeValue(resultFile, outputs);
-         * System.out.println(args[0]);
+        /*
+          Write to JSON.
+          java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
+          objectWriter.writeValue(resultFile, outputs);
          */
         objectWriter.writeValue(new File(args[1]), outputs);
 
     }
 
-    /**
-     *
-     * @param outputs
-     */
     public static void errorOutput(final List<Output> outputs) {
         Output currentOutput = new Output("Error",
                 Collections.emptyList(), null);
         outputs.add(currentOutput);
     }
 
-    /**
-     *
-     * @param outputs
-     * @param currentMovies
-     * @param currentUser
-     */
     public static void successOutput(final List<Output> outputs,
                                      final List<CurrentMovie> currentMovies,
                                      final currentUser currentUser) {

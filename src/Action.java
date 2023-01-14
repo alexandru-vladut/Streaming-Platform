@@ -9,7 +9,7 @@ public final class Action {
     private final String startsWith = null;
     private final String count = null;
     private final String objectType = null;
-    private final int rate = -1;
+    private int rate;
     private final Filters filters = null;
 
     public String getType() {
