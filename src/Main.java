@@ -29,6 +29,7 @@ public class Main {
           Read from JSON.
           java.io.File File = Paths.get("checker/resources/in/basic_10.json").toFile();
          */
+//        java.io.File myFile = Paths.get("checker/resources/in/basic_8.json").toFile();
         java.io.File myFile = Paths.get(args[0]).toFile();
         JsonNode jsonNode = objectMapper.readTree(myFile);
 
@@ -125,50 +126,23 @@ public class Main {
                 switch (newPage) {
 
                     case "login" -> {
-                        if (!currentPage.equals("homepage neautentificat")) {
-                            errorOutput(outputs);
-                            break;
-                        }
-                        currentPage = "login";
+                        currentPage = changePageMethods.loginMethod(currentPage, outputs);
                     }
 
                     case "register" -> {
-                        if (!currentPage.equals("homepage neautentificat")) {
-                            errorOutput(outputs);
-                            break;
-                        }
-                        currentPage = "register";
+                        currentPage = changePageMethods.registerMethod(currentPage, outputs);
                     }
 
                     case "homepage autentificat" -> {
-                        if (!currentPage.equals("movies")
-                                && !currentPage.equals("see details")
-                                && !currentPage.equals("upgrades")) {
-                            errorOutput(outputs);
-                            break;
-                        }
-                        currentPage = "homepage autentificat";
+                        currentPage = changePageMethods.homepageMethod(currentPage, outputs);
                     }
 
                     case "upgrades" -> {
-                        if (!currentPage.equals("see details")
-                                && !currentPage.equals("homepage autentificat")) {
-                            errorOutput(outputs);
-                            break;
-                        }
-                        currentPage = "upgrades";
+                        currentPage = changePageMethods.upgradesMethod(currentPage, outputs);
                     }
 
                     case "logout" -> {
-                        if (!currentPage.equals("see details") && !currentPage.equals("movies")
-                                && !currentPage.equals("upgrades")
-                                && !currentPage.equals("homepage autentificat")) {
-                            errorOutput(outputs);
-                            break;
-                        }
-
-                        currentPage = "homepage neautentificat";
-                        currentUser = null;
+                        currentPage = changePageMethods.logoutMethod(currentPage, outputs);
                     }
 
                     case "movies" -> {
@@ -238,7 +212,7 @@ public class Main {
             /*
               ON PAGE
              */
-            } else if (action.getType().equals("on page")) {
+            } else {
 
                 String feature = action.getFeature();
 
@@ -888,6 +862,7 @@ public class Main {
                         boolean ratedMovie = false;
                         assert currentUser != null;
                         for (CurrentMovie movie : currentUser.getRatedMovies()) {
+                            assert actualMovie != null;
                             if (actualMovie.getName().equals(movie.getName())) {
                                 ratedMovie = true;
                                 break;
@@ -914,6 +889,7 @@ public class Main {
                         currentUser currentUserCopyForRate =
                                 new currentUser(credentialsCopyForRate, currentUser);
 
+                        assert actualMovie != null;
                         Double currentRatingsSum = ratingsSum.get(actualMovie.getName());
                         currentRatingsSum += action.getRate();
                         ratingsSum.put(actualMovie.getName(), currentRatingsSum);
@@ -1016,6 +992,8 @@ public class Main {
           java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
           objectWriter.writeValue(resultFile, outputs);
          */
+//        java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
+//        objectWriter.writeValue(resultFile, outputs);
         objectWriter.writeValue(new File(args[1]), outputs);
 
     }

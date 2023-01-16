@@ -468,6 +468,7 @@
     },
     {
       "type": "on page",
+      "page": "movies",
       "feature": "filter",
       "filters": {
         "contains": {
@@ -484,6 +485,7 @@
     },
     {
       "type": "on page",
+      "page": "movies",
       "feature": "filter",
       "filters": {
         "contains": {
@@ -500,6 +502,7 @@
     },
     {
       "type": "on page",
+      "page": "movies",
       "feature": "filter",
       "filters": {
         "contains": {
@@ -526,11 +529,11 @@
       "feature": "like"
     },
     {
-      "type": "change page",
-      "page": "movies"
+   "type":"back"
     },
     {
       "type": "on page",
+      "page": "movies",
       "feature": "filter",
       "filters": {
         "contains": {
@@ -547,6 +550,10 @@
     },
     {
       "type": "on page",
+      "feature": "purchase"
+    },
+    {
+      "type": "on page",
       "feature": "watch"
     },
     {
@@ -554,8 +561,37 @@
       "feature": "like"
     },
     {
+      "type": "back"
+    },
+    {
       "type": "change page",
-      "page": "movies"
+      "page": "see details",
+      "movie": "Little Foxes, The"
+    },
+    {
+      "type": "on page",
+      "feature": "purchase"
+    },
+    {
+      "type": "on page",
+      "feature": "watch"
+    },
+    {
+      "type": "on page",
+      "feature": "like"
+    },
+    {
+      "type": "database",
+      "feature": "delete",
+      "deletedMovie": "Little Foxes, The"
+    },
+    {
+      "type": "back"
+    },
+    {
+      "type": "database",
+      "feature": "delete",
+      "deletedMovie": "Nea Marin Miliardar"
     }
   ]
 }

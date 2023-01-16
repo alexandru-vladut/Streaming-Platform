@@ -13,7 +13,6 @@ public final class Checkstyle {
     private Checkstyle() {
         //constructor for checkstyle
     }
-
     /**
      * DO NOT MODIFY
      */
@@ -35,21 +34,21 @@ public final class Checkstyle {
 
             long errors = 0;
             if (lineCount > 2) {
-                errors = lineCount - CheckStyleConstants.BIG_TEST_POINTS;
+                errors = lineCount - CheckerConstants.BIG_TEST_POINTS;
             }
             System.out.println("-----------------------------------------------------");
             System.out.println("Checkstyle: "
-                    + ((errors <= CheckStyleConstants.MAXIMUM_ERROR_CHECKSTYLE) ? "Ok" : "Failed"));
+                    + ((errors <= CheckerConstants.MAXIMUM_ERROR_CHECKSTYLE) ? "Ok" : "Failed"));
             System.out.println("Checkstyle errors: " + errors);
             System.out.println("-----------------------------------------------------");
             System.out
                     .println("CHECKSTYLE = "
-                            + ((errors <= CheckStyleConstants.MAXIMUM_ERROR_CHECKSTYLE)
+                            + ((errors <= CheckerConstants.MAXIMUM_ERROR_CHECKSTYLE)
                             ? "10/10" : "0/10"));
             System.out
                     .println("-----------------------------------------------------");
-            return (errors <= CheckStyleConstants.MAXIMUM_ERROR_CHECKSTYLE)
-                    ? CheckStyleConstants.CHECKSTYLE_POINTS : 0;
+            return (errors <= CheckerConstants.MAXIMUM_ERROR_CHECKSTYLE)
+                    ? CheckerConstants.CHECKSTYLE_POINTS : 0;
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

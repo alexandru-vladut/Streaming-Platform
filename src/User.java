@@ -122,18 +122,10 @@ public class User {
 
     User() { }
 
-    /**
-     *
-     * @return
-     */
     public Credentials getCredentials() {
         return credentials;
     }
 
-    /**
-     *
-     * @param credentials
-     */
     public void setCredentials(final Credentials credentials) {
         this.credentials = credentials;
     }
