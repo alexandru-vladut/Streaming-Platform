@@ -4,7 +4,7 @@
       "credentials": {
         "name": "Eduard",
         "password": "secret",
-        "accountType": "standard",
+        "accountType": "premium",
         "country": "India",
         "balance": "50"
       }
@@ -367,7 +367,7 @@
       "year": 1994,
       "duration": 141,
       "genres": [
-        "Comedy",
+        "Crime",
         "Mystery",
         "Drama"
       ],
@@ -465,6 +465,7 @@
     },
     {
       "type": "on page",
+      "page": "upgrades",
       "feature": "buy tokens",
       "count": "50"
     },
@@ -479,11 +480,120 @@
     },
     {
       "type": "on page",
+      "feature": "subscribe",
+      "subscribedGenre": "Drama"
+    },
+    {
+      "type": "on page",
       "feature": "purchase"
     },
     {
       "type": "on page",
       "feature": "watch"
+    },
+    {
+      "type": "back"
+    },
+    {
+      "type": "change page",
+      "page": "see details",
+      "movie": "Indiana Jones and the Temple of Doom"
+    },
+    {
+      "type": "on page",
+      "feature": "subscribe",
+      "subscribedGenre": "Comedy"
+    },
+    {
+      "type": "back"
+    },
+    {
+      "type": "change page",
+      "page": "see details",
+      "movie": "The Well-Digger's Daughter"
+    },
+    {
+      "type": "on page",
+      "feature": "subscribe",
+      "subscribedGenre": "Crime"
+    },
+    {
+      "type": "database",
+      "feature": "add",
+      "addedMovie": {
+        "name": "The Shawshank Redemption",
+        "year": 1994,
+        "duration": 166,
+        "genres": [
+          "Drama",
+          "Thriller"
+        ],
+        "countriesBanned": [
+          "Azerbaijan",
+          "China",
+          "India"
+        ],
+        "actors": [
+          "Tim Robbins",
+          "Morgan Freeman",
+          "Bob Gunton",
+          "William Sadler"
+        ]
+      }
+    },
+    {
+      "type": "database",
+      "feature": "add",
+      "addedMovie": {
+        "name": "The Dark Knight",
+        "year": 2008,
+        "duration": 166,
+        "genres": [
+          "Action",
+          "Mistery",
+          "Thriller"
+        ],
+        "countriesBanned": [
+          "Azerbaijan",
+          "China",
+          "India"
+        ],
+        "actors": [
+          "Morgan Freeman",
+          "Christian Bale",
+          "Heath Ledger",
+          "Michael Caine"
+        ]
+      }
+    },
+    {
+      "type": "database",
+      "feature": "add",
+      "addedMovie": {
+        "name": "Pulp Fictiom",
+        "year": 1994,
+        "duration": 166,
+        "genres": [
+          "Crime",
+          "Drama",
+          "Thriller"
+        ],
+        "countriesBanned": [
+          "Azerbaijan",
+          "China",
+          "India"
+        ],
+        "actors": [
+          "John Travolta",
+          "Uma Thurman",
+          "Samuel L. Jackson",
+          "Bruce Willis"
+        ]
+      }
+    },
+    {
+      "type": "change page",
+      "page": "movies"
     },
     {
       "type": "change page",

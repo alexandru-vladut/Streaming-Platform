@@ -433,6 +433,7 @@
     },
     {
       "type": "on page",
+      "page": "register",
       "feature": "register",
       "credentials": {
         "name": "Dorel",
@@ -448,11 +449,13 @@
     },
     {
       "type": "on page",
+      "page": "upgrades",
       "feature": "buy tokens",
       "count": "1000"
     },
     {
       "type": "on page",
+      "page": "upgrades",
       "feature": "buy premium account"
     },
     {
@@ -478,8 +481,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -500,8 +502,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -522,8 +523,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -544,8 +544,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -566,8 +565,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -588,8 +586,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -610,8 +607,21 @@
       "rate": 10
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
+    },
+    {
+      "type": "on page",
+      "feature": "buy tokens",
+      "count": "1000"
+    },
+    {
+      "type": "back"
+    },
+    {
+      "type": "back"
+    },
+    {"type": "change page",
+    "page":"movies"
     },
     {
       "type": "change page",
@@ -632,8 +642,7 @@
       "rate": 6
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -654,8 +663,7 @@
       "rate": 3
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -676,8 +684,7 @@
       "rate": 5
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -698,8 +705,7 @@
       "rate": 3
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -720,8 +726,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -742,8 +747,7 @@
       "rate": 1
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -764,8 +768,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -786,8 +789,7 @@
       "rate": 5
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -808,8 +810,7 @@
       "rate": 4
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -830,8 +831,7 @@
       "rate": 2
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "change page",
@@ -847,11 +847,11 @@
       "feature": "watch"
     },
     {
-      "type": "change page",
-      "page": "movies"
+     "type" : "back"
     },
     {
       "type": "on page",
+      "page": "movies",
       "feature": "filter",
       "filters": {
         "sort": {
