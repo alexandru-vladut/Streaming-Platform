@@ -6,20 +6,6 @@ class CurrentMovie extends Movie {
     private double rating = 0;
     private int numRatings = 0;
 
-    CurrentMovie(final String name, final int year, final int duration, final List<String> genres,
-                 final List<String> actors, final List<String> countriesBanned) {
-        super(name, year, duration, genres, actors, countriesBanned);
-    }
-
-    CurrentMovie(final String name, final int year, final int duration, final List<String> genres,
-                 final List<String> actors, final List<String> countriesBanned, final int numLikes,
-                 final double rating, final int numRatings) {
-        super(name, year, duration, genres, actors, countriesBanned);
-        this.numLikes = numLikes;
-        this.rating = rating;
-        this.numRatings = numRatings;
-    }
-
     CurrentMovie(final CurrentMovie currentMovie) {
         super(currentMovie);
         this.numLikes = currentMovie.numLikes;
@@ -61,21 +47,11 @@ class CurrentMovie extends Movie {
 
 public class Movie {
     private String name;
-    private int year;
+    private String year;
     private int duration;
     private List<String> genres;
     private List<String> actors;
     private List<String> countriesBanned;
-
-    Movie(final String name, final int year, final int duration, final List<String> genres,
-          final List<String> actors, final List<String> countriesBanned) {
-        this.name = name;
-        this.year = year;
-        this.duration = duration;
-        this.genres = genres;
-        this.actors = actors;
-        this.countriesBanned = countriesBanned;
-    }
 
     Movie(final Movie movie) {
         this.name = movie.name;
@@ -88,98 +64,50 @@ public class Movie {
 
     Movie() { }
 
-    /**
-     *
-     * @return
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     *
-     * @param name
-     */
     public void setName(final String name) {
         this.name = name;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    /**
-     *
-     * @param year
-     */
-    public void setYear(final int year) {
+    public void setYear(final String year) {
         this.year = year;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getDuration() {
         return duration;
     }
 
-    /**
-     *
-     * @param duration
-     */
     public void setDuration(final int duration) {
         this.duration = duration;
     }
 
-    /**
-     *
-     * @return
-     */
     public List<String> getGenres() {
         return genres;
     }
 
-    /**
-     *
-     * @param genres
-     */
     public void setGenres(final List<String> genres) {
         this.genres = genres;
     }
 
-    /**
-     *
-     * @return
-     */
     public List<String> getActors() {
         return actors;
     }
 
-    /**
-     *
-     * @param actors
-     */
     public void setActors(final List<String> actors) {
         this.actors = actors;
     }
 
-    /**
-     *
-     * @return
-     */
     public List<String> getCountriesBanned() {
         return countriesBanned;
     }
 
-    /**
-     *
-     * @param countriesBanned
-     */
     public void setCountriesBanned(final List<String> countriesBanned) {
         this.countriesBanned = countriesBanned;
     }

@@ -8,6 +8,7 @@ class currentUser extends User {
     private List<CurrentMovie> watchedMovies;
     private List<CurrentMovie> likedMovies;
     private List<CurrentMovie> ratedMovies;
+    private List<Notification> notifications;
 
     currentUser(final Credentials credentials) {
         super(credentials);
@@ -15,19 +16,7 @@ class currentUser extends User {
         watchedMovies = new ArrayList<>();
         likedMovies = new ArrayList<>();
         ratedMovies = new ArrayList<>();
-    }
-
-    currentUser(final Credentials credentials, final int tokensCount,
-                final int numFreePremiumMovies, final List<CurrentMovie> purchasedMovies,
-                final List<CurrentMovie> watchedMovies, final List<CurrentMovie> likedMovies,
-                final List<CurrentMovie> ratedMovies) {
-        super(credentials);
-        this.tokensCount = tokensCount;
-        this.numFreePremiumMovies = numFreePremiumMovies;
-        this.purchasedMovies = purchasedMovies;
-        this.watchedMovies = watchedMovies;
-        this.likedMovies = likedMovies;
-        this.ratedMovies = ratedMovies;
+        notifications = new ArrayList<>();
     }
 
     currentUser(final Credentials credentials, final currentUser currentUser) {
@@ -57,6 +46,12 @@ class currentUser extends User {
         for (CurrentMovie movie : currentUser.getRatedMovies()) {
             CurrentMovie movieCopy = new CurrentMovie(movie);
             this.ratedMovies.add(movieCopy);
+        }
+
+        this.notifications = new ArrayList<>();
+        for (Notification notify : currentUser.getNotifications()) {
+            Notification notifyCopy = new Notification(notify);
+            this.notifications.add(notifyCopy);
         }
     }
 
@@ -106,6 +101,14 @@ class currentUser extends User {
 
     public void setRatedMovies(final List<CurrentMovie> ratedMovies) {
         this.ratedMovies = ratedMovies;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
 }
 
