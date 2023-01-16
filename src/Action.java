@@ -11,6 +11,9 @@ public final class Action {
     private final String objectType = null;
     private int rate;
     private final Filters filters = null;
+    private final String subscribedGenre = null;
+    private final Movie addedMovie = null;
+    private final String deletedMovie = null;
 
     public String getType() {
         return type;
@@ -50,6 +53,18 @@ public final class Action {
 
     public String getObjectType() {
         return objectType;
+    }
+
+    public String getSubscribedGenre() {
+        return subscribedGenre;
+    }
+
+    public Movie getAddedMovie() {
+        return addedMovie;
+    }
+
+    public String getDeletedMovie() {
+        return deletedMovie;
     }
 }
 

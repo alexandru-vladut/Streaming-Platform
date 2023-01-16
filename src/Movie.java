@@ -6,20 +6,6 @@ class CurrentMovie extends Movie {
     private double rating = 0;
     private int numRatings = 0;
 
-    CurrentMovie(final String name, final int year, final int duration, final List<String> genres,
-                 final List<String> actors, final List<String> countriesBanned) {
-        super(name, year, duration, genres, actors, countriesBanned);
-    }
-
-    CurrentMovie(final String name, final int year, final int duration, final List<String> genres,
-                 final List<String> actors, final List<String> countriesBanned, final int numLikes,
-                 final double rating, final int numRatings) {
-        super(name, year, duration, genres, actors, countriesBanned);
-        this.numLikes = numLikes;
-        this.rating = rating;
-        this.numRatings = numRatings;
-    }
-
     CurrentMovie(final CurrentMovie currentMovie) {
         super(currentMovie);
         this.numLikes = currentMovie.numLikes;
@@ -61,21 +47,11 @@ class CurrentMovie extends Movie {
 
 public class Movie {
     private String name;
-    private int year;
+    private String year;
     private int duration;
     private List<String> genres;
     private List<String> actors;
     private List<String> countriesBanned;
-
-    Movie(final String name, final int year, final int duration, final List<String> genres,
-          final List<String> actors, final List<String> countriesBanned) {
-        this.name = name;
-        this.year = year;
-        this.duration = duration;
-        this.genres = genres;
-        this.actors = actors;
-        this.countriesBanned = countriesBanned;
-    }
 
     Movie(final Movie movie) {
         this.name = movie.name;
@@ -108,7 +84,7 @@ public class Movie {
      *
      * @return
      */
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
@@ -116,7 +92,7 @@ public class Movie {
      *
      * @param year
      */
-    public void setYear(final int year) {
+    public void setYear(final String year) {
         this.year = year;
     }
 
