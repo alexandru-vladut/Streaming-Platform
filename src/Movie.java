@@ -64,50 +64,98 @@ public class Movie {
 
     Movie() { }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(final String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getYear() {
         return year;
     }
 
+    /**
+     *
+     * @param year
+     */
     public void setYear(final String year) {
         this.year = year;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDuration() {
         return duration;
     }
 
+    /**
+     *
+     * @param duration
+     */
     public void setDuration(final int duration) {
         this.duration = duration;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getGenres() {
         return genres;
     }
 
+    /**
+     *
+     * @param genres
+     */
     public void setGenres(final List<String> genres) {
         this.genres = genres;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getActors() {
         return actors;
     }
 
+    /**
+     *
+     * @param actors
+     */
     public void setActors(final List<String> actors) {
         this.actors = actors;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getCountriesBanned() {
         return countriesBanned;
     }
 
+    /**
+     *
+     * @param countriesBanned
+     */
     public void setCountriesBanned(final List<String> countriesBanned) {
         this.countriesBanned = countriesBanned;
     }

@@ -1,4 +1,4 @@
-public class Notification {
+final public class Notification {
     private String movieName;
     private String message;
 
@@ -12,7 +12,7 @@ public class Notification {
         this.message = notification.message;
     }
 
-    Notification() {}
+    Notification() { }
 
     public String getMovieName() {
         return movieName;

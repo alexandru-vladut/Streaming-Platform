@@ -29,7 +29,6 @@ public class Main {
           Read from JSON.
           java.io.File File = Paths.get("checker/resources/in/basic_10.json").toFile();
          */
-//        java.io.File myFile = Paths.get("checker/resources/in/basic_8.json").toFile();
         java.io.File myFile = Paths.get(args[0]).toFile();
         JsonNode jsonNode = objectMapper.readTree(myFile);
 
@@ -242,6 +241,8 @@ public class Main {
 
                             successOutput(outputs, currentMovies, currentUser);
                         }
+
+                        default -> { }
                     }
                 }
                 case "on page" -> {
@@ -351,10 +352,12 @@ public class Main {
                             boolean authSuccess = false;
                             for (InputDatabase entry : inputDatabases) {
 
-                                Credentials entryUserCredentials = entry.getDbUser().getCredentials();
+                                Credentials entryUserCredentials =
+                                        entry.getDbUser().getCredentials();
 
                                 if (loginName.equals(entryUserCredentials.getName())
-                                        && loginPassword.equals(entryUserCredentials.getPassword())) {
+                                        && loginPassword.equals(
+                                                entryUserCredentials.getPassword())) {
                                     authSuccess = true;
 
                                     currentUser = new currentUser(entryUserCredentials,
@@ -365,7 +368,8 @@ public class Main {
                                         currentMovies.add(new CurrentMovie(movie));
                                     }
 
-                                    subscribedGenres = new ArrayList<>(entry.getDbSubscribedGenres());
+                                    subscribedGenres = new ArrayList<>(
+                                            entry.getDbSubscribedGenres());
 
                                     break;
                                 }
@@ -397,12 +401,14 @@ public class Main {
                                 currentMoviesCopyForSearch.add(movieCopy);
                             }
 
-                            Iterator<CurrentMovie> iForSearch = currentMoviesCopyForSearch.iterator();
+                            Iterator<CurrentMovie> iForSearch =
+                                    currentMoviesCopyForSearch.iterator();
                             while (iForSearch.hasNext()) {
                                 CurrentMovie currentMovie = iForSearch.next();
 
                                 if (currentMovie.getName().length() >= length) {
-                                    String nameStartsWith = currentMovie.getName().substring(0, length);
+                                    String nameStartsWith =
+                                            currentMovie.getName().substring(0, length);
 
                                     if (!nameStartsWith.equals(action.getStartsWith())) {
                                         iForSearch.remove();
@@ -429,7 +435,8 @@ public class Main {
 
                                 assert currentUser != null;
                                 String currentUserName = currentUser.getCredentials().getName();
-                                String entryUserName = entry.getDbUser().getCredentials().getName();
+                                String entryUserName =
+                                        entry.getDbUser().getCredentials().getName();
 
                                 if (currentUserName.equals(entryUserName)) {
 
@@ -545,7 +552,8 @@ public class Main {
 
                             int tokensWanted = parseInt(action.getCount());
                             int currentBalanceForTokens =
-                                    parseInt(currentUserCopyForTokens.getCredentials().getBalance());
+                                    parseInt(currentUserCopyForTokens.getCredentials().
+                                            getBalance());
                             int currentTokensForTokens = currentUserCopyForTokens.getTokensCount();
 
                             if (currentBalanceForTokens < tokensWanted) {
@@ -904,144 +912,6 @@ public class Main {
                             successOutput(outputs, currentMovies, currentUser);
                         }
 
-//                        case "rate" -> {
-//                            if (!currentPage.equals("see details")) {
-//                                errorOutput(outputs);
-//                                break;
-//                            }
-//
-//                            if (action.getMovie() != null) {
-//                                assert actualMovie != null;
-//                                if (!action.getMovie().equals(actualMovie.getName())) {
-//                                    errorOutput(outputs);
-//                                    break;
-//                                }
-//                            }
-//
-//                            boolean ratedMovie = false;
-//                            assert currentUser != null;
-//                            for (CurrentMovie movie : currentUser.getRatedMovies()) {
-//                                assert actualMovie != null;
-//                                if (actualMovie.getName().equals(movie.getName())) {
-//                                    ratedMovie = true;
-//                                    break;
-//                                }
-//                            }
-//
-//                            if (ratedMovie) {
-//                                errorOutput(outputs);
-//                                break;
-//                            }
-//
-//                            if (action.getRate() < 1 || action.getRate() > FIVE) {
-//                                errorOutput(outputs);
-//                                break;
-//                            }
-//
-//                            List<CurrentMovie> currentMoviesCopyForRate = new ArrayList<>();
-//                            for (CurrentMovie movie : currentMovies) {
-//                                currentMoviesCopyForRate.add(new CurrentMovie(movie));
-//                            }
-//
-//                            Credentials credentialsCopyForRate =
-//                                    new Credentials(currentUser.getCredentials());
-//                            currentUser currentUserCopyForRate =
-//                                    new currentUser(credentialsCopyForRate, currentUser);
-//
-//                            assert actualMovie != null;
-//                            Double currentRatingsSum = ratingsSum.get(actualMovie.getName());
-//                            currentRatingsSum += action.getRate();
-//                            ratingsSum.put(actualMovie.getName(), currentRatingsSum);
-//
-//                            Integer currentRatingsNum = ratingsNum.get(actualMovie.getName());
-//                            currentRatingsNum += 1;
-//                            ratingsNum.put(actualMovie.getName(), currentRatingsNum);
-//
-//                            double newRating = currentRatingsSum / (double) currentRatingsNum;
-//                            boolean watchedMovieForRate = false;
-//                            for (CurrentMovie movie : currentUserCopyForRate.getWatchedMovies()) {
-//                                if (actualMovie.getName().equals(movie.getName())) {
-//                                    watchedMovieForRate = true;
-//
-//                                    movie.setNumRatings(currentRatingsNum);
-//                                    movie.setRating(newRating);
-//
-//                                    break;
-//                                }
-//                            }
-//
-//                            if (!watchedMovieForRate) {
-//                                errorOutput(outputs);
-//                                break;
-//                            }
-//
-//                            for (CurrentMovie movie
-//                                    : currentUserCopyForRate.getPurchasedMovies()) {
-//                                if (actualMovie.getName().equals(movie.getName())) {
-//
-//                                    movie.setNumRatings(currentRatingsNum);
-//                                    movie.setRating(newRating);
-//                                    break;
-//                                }
-//                            }
-//
-//                            for (CurrentMovie movie : currentUserCopyForRate.getLikedMovies()) {
-//                                if (actualMovie.getName().equals(movie.getName())) {
-//
-//                                    movie.setNumRatings(currentRatingsNum);
-//                                    movie.setRating(newRating);
-//                                    break;
-//                                }
-//                            }
-//
-//                            for (CurrentMovie movie : currentMoviesCopyForRate) {
-//                                if (actualMovie.getName().equals(movie.getName())) {
-//
-//                                    movie.setNumRatings(currentRatingsNum);
-//                                    movie.setRating(newRating);
-//                                    break;
-//                                }
-//                            }
-//
-//                            CurrentMovie actualMovieCopyForRate = new CurrentMovie(actualMovie);
-//                            actualMovieCopyForRate.setNumRatings(currentRatingsNum);
-//                            actualMovieCopyForRate.setRating(newRating);
-//                            currentUserCopyForRate.getRatedMovies().add(actualMovieCopyForRate);
-//                            actualMovie = new CurrentMovie(actualMovieCopyForRate);
-//
-//                            currentUser = new currentUser(credentialsCopyForRate,
-//                                    currentUserCopyForRate);
-//
-//                            currentMovies = new ArrayList<>();
-//                            for (CurrentMovie movie : currentMoviesCopyForRate) {
-//                                currentMovies.add(new CurrentMovie(movie));
-//                            }
-//
-//                            for (InputDatabase entry : inputDatabases) {
-//
-//                                String currentUserName = currentUser.getCredentials().getName();
-//                                String entryUserName = entry.getDbUser().getCredentials().getName();
-//
-//                                if (currentUserName.equals(entryUserName)) {
-//                                    entry.setDbUser(new currentUser(credentialsCopyForRate,
-//                                            currentUserCopyForRate));
-//                                }
-//
-//                                for (int i = 0; i < entry.getDbCurrentMovies().size(); i++) {
-//
-//                                    CurrentMovie modifiedMovie = currentMovies.get(0);
-//                                    CurrentMovie modifiedEntry = entry.getDbCurrentMovies().get(i);
-//
-//                                    if (modifiedMovie.getName().equals(modifiedEntry.getName())) {
-//                                        CurrentMovie movieCopy = new CurrentMovie(modifiedMovie);
-//                                        entry.getDbCurrentMovies().set(i, movieCopy);
-//                                    }
-//                                }
-//                            }
-//
-//                            successOutput(outputs, currentMovies, currentUser);
-//                        }
-
                         case "rate" -> {
                             if (!currentPage.equals("see details")) {
                                 errorOutput(outputs);
@@ -1066,11 +936,6 @@ public class Main {
                                 }
                             }
 
-//                            if (ratedMovie) {
-//                                errorOutput(outputs);
-//                                break;
-//                            }
-
                             if (action.getRate() < 1 || action.getRate() > FIVE) {
                                 errorOutput(outputs);
                                 break;
@@ -1093,11 +958,14 @@ public class Main {
                             double currentRatingsSum = 0.00;
                             int currentRatingsNum = 0;
                             for (InputDatabase entry : inputDatabases) {
-                                if (currentUser.getCredentials().getName().equals(entry.getDbUser().getCredentials().getName())) {
-                                    entry.getUserRatings().put(actualMovie.getName(), (double) action.getRate());
+                                if (currentUser.getCredentials().getName().equals(
+                                        entry.getDbUser().getCredentials().getName())) {
+                                    entry.getUserRatings().put(actualMovie.getName(),
+                                            (double) action.getRate());
                                 }
 
-                                Double currentRating = entry.getUserRatings().get(actualMovie.getName());
+                                Double currentRating =
+                                        entry.getUserRatings().get(actualMovie.getName());
                                 if (currentRating > 0) {
                                     currentRatingsSum += currentRating;
                                     currentRatingsNum += 1;
@@ -1152,7 +1020,8 @@ public class Main {
                                     }
                                 }
 
-                                if (!currentUser.getCredentials().getName().equals(entry.getDbUser().getCredentials().getName())) {
+                                if (!currentUser.getCredentials().getName().equals(
+                                        entry.getDbUser().getCredentials().getName())) {
 
                                     for (CurrentMovie movie
                                             : entry.getDbUser().getRatedMovies()) {
@@ -1165,7 +1034,8 @@ public class Main {
                                     }
                                 } else {
                                     if (!ratedMovie) {
-                                        entry.getDbUser().getRatedMovies().add(actualMovieCopyForRate);
+                                        entry.getDbUser().getRatedMovies().
+                                                add(actualMovieCopyForRate);
                                     }
                                 }
 
@@ -1180,7 +1050,8 @@ public class Main {
                                 String entryUserName = entry.getDbUser().getCredentials().getName();
 
                                 if (currentUserName.equals(entryUserName)) {
-                                    currentUser = new currentUser(entry.getDbUser().getCredentials(),
+                                    currentUser =
+                                            new currentUser(entry.getDbUser().getCredentials(),
                                             entry.getDbUser());
 
                                     currentMovies = new ArrayList<>();
@@ -1243,6 +1114,8 @@ public class Main {
                             }
 
                         }
+
+                        default -> { }
                     }
                 }
                 case "back" -> {
@@ -1271,8 +1144,9 @@ public class Main {
                             pagesStack.push(currentPage);
 
                             /*
-                              Updating currentMovies variable in case other actions modified it without
-                              rolling back to the original version afterwards (e.g. See Details page).
+                              Updating currentMovies variable in case other actions
+                              modified it withoutrolling back to the original version
+                              afterwards (e.g. See Details page).
                              */
                             for (InputDatabase entry : inputDatabases) {
 
@@ -1318,9 +1192,10 @@ public class Main {
 
                             successOutput(outputs, currentMovies, currentUser);
                         }
+
+                        default -> { }
                     }
                 }
-
                 case "database" -> {
                     String feature = action.getFeature();
                     switch (feature) {
@@ -1340,7 +1215,8 @@ public class Main {
 
                             movies.add(new Movie(newMovie));
 
-                            Notification newNotify = new Notification(newMovie.getName(), "ADD");
+                            Notification newNotify = new Notification(newMovie.getName(),
+                                    "ADD");
 
                             for (InputDatabase entry : inputDatabases) {
 
@@ -1348,7 +1224,8 @@ public class Main {
 
                                 boolean userBanned = false;
                                 for (String countryBanned : newMovie.getCountriesBanned()) {
-                                    if (entry.getDbUser().getCredentials().getCountry().equals(countryBanned)) {
+                                    if (entry.getDbUser().getCredentials().getCountry().
+                                            equals(countryBanned)) {
                                         userBanned = true;
                                         break;
                                     }
@@ -1375,7 +1252,8 @@ public class Main {
 
                                     boolean banned = false;
                                     for (String bannedCountry : newMovie.getCountriesBanned()) {
-                                        if (entry.getDbUser().getCredentials().getCountry().equals(bannedCountry)) {
+                                        if (entry.getDbUser().getCredentials().getCountry().
+                                                equals(bannedCountry)) {
                                             banned = true;
                                             break;
                                         }
@@ -1395,16 +1273,9 @@ public class Main {
                                 String entryUserName = entry.getDbUser().getCredentials().getName();
 
                                 if (currentUserName.equals(entryUserName)) {
-                                    currentUser = new currentUser(entry.getDbUser().getCredentials(),
+                                    currentUser =
+                                            new currentUser(entry.getDbUser().getCredentials(),
                                             entry.getDbUser());
-
-//                                    currentMovies = new ArrayList<>();
-//                                    for (CurrentMovie movie : entry.getDbCurrentMovies()) {
-//                                        assert actualMovie != null;
-//                                        if (actualMovie.getName().equals(movie.getName())) {
-//                                            currentMovies.add(new CurrentMovie(movie));
-//                                        }
-//                                    }
                                 }
                             }
 
@@ -1426,7 +1297,8 @@ public class Main {
 
                             movies.remove(index);
 
-                            Notification newNotify = new Notification(deletedMovieName, "DELETE");
+                            Notification newNotify = new Notification(deletedMovieName,
+                                    "DELETE");
 
                             for (InputDatabase entry : inputDatabases) {
                                 boolean found = false;
@@ -1441,7 +1313,8 @@ public class Main {
                                     continue;
                                 }
 
-                                if (entry.getDbUser().getCredentials().getAccountType().equals("premium")) {
+                                if (entry.getDbUser().getCredentials().getAccountType().
+                                        equals("premium")) {
                                     int aux = entry.getDbUser().getNumFreePremiumMovies();
                                     aux += 1;
                                     entry.getDbUser().setNumFreePremiumMovies(aux);
@@ -1452,9 +1325,11 @@ public class Main {
                                 }
 
                                 int purchasedIndex = -1;
-                                List<CurrentMovie> purchasedReference = entry.getDbUser().getPurchasedMovies();
-                                for (int i = 0 ; i < purchasedReference.size(); i++) {
-                                    if (deletedMovieName.equals(purchasedReference.get(i).getName())) {
+                                List<CurrentMovie> purchasedReference = entry.getDbUser().
+                                        getPurchasedMovies();
+                                for (int i = 0; i < purchasedReference.size(); i++) {
+                                    if (deletedMovieName.equals(purchasedReference.get(i).
+                                            getName())) {
                                         purchasedIndex = i;
                                         break;
                                     }
@@ -1464,9 +1339,11 @@ public class Main {
                                 }
 
                                 int watchedIndex = -1;
-                                List<CurrentMovie> watchedReference = entry.getDbUser().getWatchedMovies();
-                                for (int i = 0 ; i < watchedReference.size(); i++) {
-                                    if (deletedMovieName.equals(watchedReference.get(i).getName())) {
+                                List<CurrentMovie> watchedReference = entry.getDbUser().
+                                        getWatchedMovies();
+                                for (int i = 0; i < watchedReference.size(); i++) {
+                                    if (deletedMovieName.equals(watchedReference.get(i).
+                                            getName())) {
                                         watchedIndex = i;
                                         break;
                                     }
@@ -1476,8 +1353,9 @@ public class Main {
                                 }
 
                                 int likedIndex = -1;
-                                List<CurrentMovie> likedReference = entry.getDbUser().getLikedMovies();
-                                for (int i = 0 ; i < likedReference.size(); i++) {
+                                List<CurrentMovie> likedReference = entry.getDbUser().
+                                        getLikedMovies();
+                                for (int i = 0; i < likedReference.size(); i++) {
                                     if (deletedMovieName.equals(likedReference.get(i).getName())) {
                                         likedIndex = i;
                                         break;
@@ -1488,9 +1366,11 @@ public class Main {
                                 }
 
                                 int ratedIndex = -1;
-                                List<CurrentMovie> ratedReference = entry.getDbUser().getRatedMovies();
-                                for (int i = 0 ; i < ratedReference.size(); i++) {
-                                    if (deletedMovieName.equals(ratedReference.get(i).getName())) {
+                                List<CurrentMovie> ratedReference =
+                                        entry.getDbUser().getRatedMovies();
+                                for (int i = 0; i < ratedReference.size(); i++) {
+                                    if (deletedMovieName.equals(ratedReference.get(i).
+                                            getName())) {
                                         ratedIndex = i;
                                         break;
                                     }
@@ -1503,18 +1383,23 @@ public class Main {
                             }
 
                         }
+
+                        default -> { }
                     }
                 }
+                default -> { }
             }
         }
 
-        if (currentUser != null && currentUser.getCredentials().getAccountType().equals("premium")) {
+        if (currentUser != null
+                && currentUser.getCredentials().getAccountType().equals("premium")) {
             boolean foundRecommendation = false;
 
             // Try to find Recommendation and set foundRecommendation to 'true'.
 
             if (!foundRecommendation) {
-                Notification newNotify = new Notification("No recommendation", "Recommendation");
+                Notification newNotify = new Notification("No recommendation",
+                        "Recommendation");
                 for (InputDatabase entry : inputDatabases) {
 
                     String currentUserName = currentUser.getCredentials().getName();
@@ -1535,8 +1420,6 @@ public class Main {
           java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
           objectWriter.writeValue(resultFile, outputs);
          */
-//        java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
-//        objectWriter.writeValue(resultFile, outputs);
         objectWriter.writeValue(new File(args[1]), outputs);
 
     }
