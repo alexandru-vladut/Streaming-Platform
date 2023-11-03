@@ -1,3 +1,5 @@
+import movieClasses.CurrentMovie;
+
 import java.util.List;
 
 public final class Output {

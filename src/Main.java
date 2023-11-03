@@ -3,6 +3,9 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import movieClasses.CurrentMovie;
+import movieClasses.Movie;
+import sortingComparators.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,19 +32,18 @@ public class Main {
           Read from JSON.
           java.io.File File = Paths.get("checker/resources/in/basic_10.json").toFile();
          */
+//        java.io.File File = Paths.get("checker/resources/in/basic_4.json").toFile();
         java.io.File myFile = Paths.get(args[0]).toFile();
         JsonNode jsonNode = objectMapper.readTree(myFile);
 
         String arrayString = jsonNode.get("users").toString();
-        List<User> users = objectMapper.readValue(arrayString, new TypeReference<List<User>>() { });
+        List<User> users = objectMapper.readValue(arrayString, new TypeReference<>() {});
 
         arrayString = jsonNode.get("movies").toString();
-        List<Movie> movies = objectMapper.readValue(arrayString,
-                new TypeReference<List<Movie>>() { });
+        List<Movie> movies = objectMapper.readValue(arrayString, new TypeReference<>() {});
 
         arrayString = jsonNode.get("actions").toString();
-        List<Action> actions = objectMapper.readValue(arrayString,
-                new TypeReference<List<Action>>() { });
+        List<Action> actions = objectMapper.readValue(arrayString, new TypeReference<>() {});
 
         /*
           Initialising database with default user information, its CurrentMovies List
@@ -1391,36 +1393,14 @@ public class Main {
             }
         }
 
-        if (currentUser != null
-                && currentUser.getCredentials().getAccountType().equals("premium")) {
-            boolean foundRecommendation = false;
-
-            // Try to find Recommendation and set foundRecommendation to 'true'.
-
-            if (!foundRecommendation) {
-                Notification newNotify = new Notification("No recommendation",
-                        "Recommendation");
-                for (InputDatabase entry : inputDatabases) {
-
-                    String currentUserName = currentUser.getCredentials().getName();
-                    String entryUserName = entry.getDbUser().getCredentials().getName();
-
-                    if (currentUserName.equals(entryUserName)) {
-                        entry.getDbUser().getNotifications().add(newNotify);
-                        currentUser = new currentUser(entry.getDbUser().getCredentials(),
-                                entry.getDbUser());
-                    }
-                }
-                successOutput(outputs, null, currentUser);
-            }
-        }
-
         /*
           Write to JSON.
           java.io.File resultFile = Paths.get("redundantFiles/outputExample.json").toFile();
           objectWriter.writeValue(resultFile, outputs);
          */
         objectWriter.writeValue(new File(args[1]), outputs);
+//        java.io.File resultFile = Paths.get("output.json").toFile();
+//        objectWriter.writeValue(resultFile, outputs);
 
     }
 

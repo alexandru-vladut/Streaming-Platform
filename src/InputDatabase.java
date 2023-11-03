@@ -1,3 +1,5 @@
+import movieClasses.CurrentMovie;
+
 import java.util.HashMap;
 import java.util.List;
 

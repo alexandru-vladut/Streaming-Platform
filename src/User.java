@@ -1,3 +1,5 @@
+import movieClasses.CurrentMovie;
+
 import java.util.ArrayList;
 import java.util.List;
 
