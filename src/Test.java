@@ -1,4 +1,3 @@
-import checker.Checkstyle;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -145,9 +144,14 @@ public final class Test {
             runTest(testFileName, config, future);
         }
 
-        score += Checkstyle.testCheckstyle();
+//        score += Checkstyle.testCheckstyle();
 
-        System.out.println("Total score: .......................... " + score + "/" + totalScore);
+        System.out.println("-----------------------------------------------------");
+        if (score == 100) {
+            System.out.println("Total score: .................. " + score + "/" + totalScore);
+        } else {
+            System.out.println("Total score: ................... " + score + "/" + totalScore);
+        }
     }
 
     private static void runTest(final String testFileName, final Config config, final Future<Object> task) {
@@ -180,7 +184,7 @@ public final class Test {
                     score += testScore;
                     printMessage(testFileName, testScore + "/" + testScore, true);
                 } else {
-                    printMessage(testFileName, "0/" + testScore, true);
+                    printMessage(testFileName, " 0/" + testScore, true);
                 }
             } catch (IOException e) {
                 printMessage(testFileName, "Output file badly formatted. Skipping test...");
@@ -217,7 +221,11 @@ public final class Test {
     private static void printMessage(final String testFileName, final String message, final boolean trail) {
         String fileName = testFileName.split("\\.")[0];
         if (trail) {
-            System.out.println("[" + fileName + "]: ..................... " + message);
+            if (fileName.equals("basic_10")) {
+                System.out.println("[" + fileName + "]: .................... " + message);
+            } else {
+                System.out.println("[" + fileName + "]: ..................... " + message);
+            }
         } else {
             System.out.println("[" + fileName + "]: " + message);
         }

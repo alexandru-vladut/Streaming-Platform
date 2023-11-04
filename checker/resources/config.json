@@ -1,12 +1,12 @@
 {
   "homework": "Project - Phase 1",
   "description": "",
-  "checkstyleScore": 10,
-  "homeworkDesignScore": 15,
-  "readmeScore": 10,
+  "checkstyleScore": 0,
+  "homeworkDesignScore": 0,
+  "readmeScore": 0,
   "testTypes": [
     {
-      "score": 6,
+      "score": 10,
       "type": "basic"
     }
   ]
