@@ -50,7 +50,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -60,7 +60,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -89,7 +89,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -118,7 +118,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -139,7 +139,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ ],
@@ -157,7 +157,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -178,7 +178,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -189,7 +189,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "likedMovies" : [ ],
@@ -206,7 +206,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -227,7 +227,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -238,7 +238,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -250,7 +250,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "notifications" : [ ]
@@ -265,7 +265,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -275,7 +275,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -296,7 +296,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -307,7 +307,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -319,7 +319,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "notifications" : [ ]
@@ -334,7 +334,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -355,7 +355,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -366,7 +366,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -378,7 +378,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "notifications" : [ ]
@@ -393,7 +393,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -414,7 +414,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -424,7 +424,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -435,7 +435,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -447,7 +447,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "notifications" : [ ]
@@ -462,7 +462,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -483,7 +483,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -493,7 +493,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -504,7 +504,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -514,7 +514,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "likedMovies" : [ ],
@@ -526,7 +526,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "notifications" : [ ]
@@ -541,7 +541,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -562,7 +562,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -572,7 +572,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -583,7 +583,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -593,7 +593,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -605,7 +605,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -615,7 +615,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 1
     } ],
     "notifications" : [ ]
@@ -649,7 +649,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 1
   }, {
     "name" : "Titanic",
@@ -659,7 +659,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -688,7 +688,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -717,7 +717,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -738,7 +738,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ ],
@@ -756,7 +756,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -777,7 +777,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -788,7 +788,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -805,7 +805,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -826,7 +826,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -837,7 +837,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -849,7 +849,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -864,7 +864,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 1
   }, {
     "name" : "Titanic",
@@ -874,7 +874,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -895,7 +895,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -906,7 +906,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -918,7 +918,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -933,7 +933,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -954,7 +954,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -965,7 +965,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -977,7 +977,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -992,7 +992,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -1013,7 +1013,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1023,7 +1023,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -1034,7 +1034,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1046,7 +1046,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1061,7 +1061,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 1
   } ],
   "currentUser" : {
@@ -1082,7 +1082,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1092,7 +1092,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 1
     } ],
     "watchedMovies" : [ {
@@ -1103,7 +1103,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1113,7 +1113,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 1
     } ],
     "likedMovies" : [ ],
@@ -1125,7 +1125,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1140,7 +1140,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.50,
+    "rating" : 2.5,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1161,7 +1161,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1171,7 +1171,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1182,7 +1182,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1192,7 +1192,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1204,7 +1204,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1214,7 +1214,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1240,7 +1240,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1250,7 +1250,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1261,7 +1261,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1271,7 +1271,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1283,7 +1283,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1293,7 +1293,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1308,7 +1308,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.50,
+    "rating" : 2.5,
     "numRatings" : 2
   }, {
     "name" : "Titanic",
@@ -1318,7 +1318,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1339,7 +1339,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1349,7 +1349,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1360,7 +1360,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1370,7 +1370,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1382,7 +1382,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1392,7 +1392,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1407,7 +1407,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1428,7 +1428,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1438,7 +1438,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1449,7 +1449,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1459,7 +1459,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1471,7 +1471,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1481,7 +1481,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1500,7 +1500,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.00,
+    "rating" : 2.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1521,7 +1521,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1531,7 +1531,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1542,7 +1542,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1552,7 +1552,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1564,7 +1564,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.00,
+      "rating" : 2.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1574,7 +1574,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1589,7 +1589,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1610,7 +1610,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1620,7 +1620,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1631,7 +1631,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1641,7 +1641,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1653,7 +1653,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1663,7 +1663,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1678,7 +1678,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.50,
+    "rating" : 2.5,
     "numRatings" : 2
   }, {
     "name" : "Titanic",
@@ -1688,7 +1688,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1709,7 +1709,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1719,7 +1719,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1730,7 +1730,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1740,7 +1740,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1752,7 +1752,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1762,7 +1762,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]
@@ -1777,7 +1777,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 3.00,
+    "rating" : 3.0,
     "numRatings" : 2
   }, {
     "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1787,7 +1787,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 2.50,
+    "rating" : 2.5,
     "numRatings" : 2
   } ],
   "currentUser" : {
@@ -1808,7 +1808,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1818,7 +1818,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "watchedMovies" : [ {
@@ -1829,7 +1829,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1839,7 +1839,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "likedMovies" : [ ],
@@ -1851,7 +1851,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 3.00,
+      "rating" : 3.0,
       "numRatings" : 2
     }, {
       "name" : "John Wick: Chapter 3 - Parabellum",
@@ -1861,7 +1861,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 2.50,
+      "rating" : 2.5,
       "numRatings" : 2
     } ],
     "notifications" : [ ]

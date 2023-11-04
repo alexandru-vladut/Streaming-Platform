@@ -27,7 +27,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -37,7 +37,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {

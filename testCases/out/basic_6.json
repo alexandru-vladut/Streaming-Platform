@@ -39,7 +39,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -49,7 +49,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -97,7 +97,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -107,7 +107,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -159,7 +159,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -169,7 +169,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -206,7 +206,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -235,7 +235,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -256,7 +256,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ ],
@@ -274,7 +274,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -295,7 +295,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -306,7 +306,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 0,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "likedMovies" : [ ],
@@ -323,7 +323,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 1,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -344,7 +344,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -355,7 +355,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "likedMovies" : [ {
@@ -366,7 +366,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "ratedMovies" : [ ],
@@ -382,7 +382,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Titanic",
@@ -392,7 +392,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 1,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   }, {
     "name" : "Matrix 2",
@@ -402,7 +402,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Ukraine" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -423,7 +423,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -434,7 +434,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "likedMovies" : [ {
@@ -445,7 +445,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "ratedMovies" : [ ],
@@ -464,7 +464,7 @@
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 0,
-    "rating" : 0.00,
+    "rating" : 0.0,
     "numRatings" : 0
   } ],
   "currentUser" : {
@@ -485,7 +485,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "watchedMovies" : [ {
@@ -496,7 +496,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "likedMovies" : [ {
@@ -507,7 +507,7 @@
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
       "countriesBanned" : [ "Russia" ],
       "numLikes" : 1,
-      "rating" : 0.00,
+      "rating" : 0.0,
       "numRatings" : 0
     } ],
     "ratedMovies" : [ ],

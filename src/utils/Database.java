@@ -15,37 +15,16 @@ public final class Database {
     private List<User> users = new ArrayList<>();
     private List<Movie> movies = new ArrayList<>();
 
-    public List<Action> initDatabaseFromJSON(String filePath) throws IOException {
-
-        /*
-          JSON ObjectMapper preparing.
-         */
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        /*
-          Read from JSON.
-          java.io.File File = Paths.get("checker/resources/in/basic_10.json").toFile();
-         */
-        java.io.File myFile = Paths.get(filePath).toFile();
-        JsonNode jsonNode = objectMapper.readTree(myFile);
-
-        String arrayString = jsonNode.get("users").toString();
-        List<InputUser> inputUsers = objectMapper.readValue(arrayString, new TypeReference<>() {});
-
+    public void initUsers(List<InputUser> inputUsers) {
         for (InputUser inputUser : inputUsers) {
             users.add(new User(inputUser.getCredentials()));
         }
+    }
 
-        arrayString = jsonNode.get("movies").toString();
-        List<InputMovie> inputMovies = objectMapper.readValue(arrayString, new TypeReference<>() {});
-
+    public void initMovies(List<InputMovie> inputMovies) {
         for (InputMovie movie : inputMovies) {
             movies.add(new Movie(movie));
         }
-
-        arrayString = jsonNode.get("actions").toString();
-
-        return objectMapper.readValue(arrayString, new TypeReference<>() {});
     }
 
     public void addUser(Credentials credentials) {
