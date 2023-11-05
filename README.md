@@ -223,3 +223,81 @@ Format JSON, conține 3 categorii de obiecte: utilizatori, filme și acțiuni.
       "subscribedGenre": "Action"
 }
 ```
+
+## Date de ieșire
+Pentru toate acțiunile care generează eroare și pentru o parte din cele care se realizează cu succes se va genera câte un output. Acest output va fi format din 3 câmpuri principale: `error`, `CurrentMoviesList` și `CurrentUser`.
+
+> **_Output in caz de eroare:_**
+```
+{
+    "error": "Error",
+    "currentMoviesList": [],
+    "currentUser": null
+}
+```
+
+> **_Exemplu output in caz de succes:_**
+```
+{
+    "error": null,
+    "currentMoviesList": [
+      {
+        "name": "John Wick: Chapter 3 - Parabellum",
+        "year": "2019",
+        "duration": 131,
+        "genres": [
+          "Action",
+          "Thriller",
+          "Crime"
+        ],
+        "actors": [
+          "Laurence Fishburne",
+          "Halle Berry",
+          "Keanu Reeves"
+        ],
+        "countriesBanned": [
+          "Russia"
+        ],
+        "numLikes": 0,
+        "rating": 0,
+        "numRatings": 0
+      },
+      {
+        "name": "Titanic",
+        "year": "2019",
+        "duration": 131,
+        "genres": [
+          "Action",
+          "Thriller",
+          "Crime"
+        ],
+        "actors": [
+          "Laurence Fishburne",
+          "Halle Berry",
+          "Keanu Reeves"
+        ],
+        "countriesBanned": [
+          "Russia"
+        ],
+        "numLikes": 0,
+        "rating": 0,
+        "numRatings": 0
+      }
+    ],
+    "currentUser": {
+      "credentials": {
+        "name": "Ramsi",
+        "password": "numiplacevelea",
+        "accountType": "standard",
+        "country": "Ireland",
+        "balance": "300"
+      },
+      "tokensCount": 0,
+      "numFreePremiumMovies": 15,
+      "purchasedMovies": [],
+      "watchedMovies": [],
+      "likedMovies": [],
+      "ratedMovies": []
+    }
+}
+```
