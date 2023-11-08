@@ -225,7 +225,13 @@ Format JSON, conține 3 categorii de obiecte: utilizatori, filme și acțiuni.
 ```
 
 ## Date de ieșire
-Pentru toate acțiunile care generează eroare și pentru o parte din cele care se realizează cu succes se va genera câte un output. Acest output va fi format din 3 câmpuri principale: `error`, `CurrentMoviesList` și `CurrentUser`.
+Output-ul este oferit în următoarele situații:
+- Acțiunea generează eroare.
+- Acțiunea este de tip _„change page”_ și pagina pe care schimbăm este _„movies”_ sau _„see details”_, iar acțiunea s-a produs cu succes.
+- Acțiunea este de tip _„on page”_, iar subacțiunea este de tip _„filter”_, _„search”_, _„login”_ sau _„register”_, iar acțiunea s-a realizat cu succes.
+- Acțiunea este de tip _„back”_, iar pagina pe care redirecționăm este _„movies”_ sau _„see details”_, iar acțiunea s-a produs cu succes.
+
+Output-ul va fi format din 3 câmpuri principale: `error`, `CurrentMoviesList` și `CurrentUser`.
 
 > **_Output in caz de eroare:_**
 ```
